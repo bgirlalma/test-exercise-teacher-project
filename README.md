@@ -1,1 +1,0 @@
-# test-exercise-teacher-project
