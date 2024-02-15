@@ -6,7 +6,7 @@ export const LogoSvg = () => {
         height="28"
         fill="none"
       >
-        <g clip-path="url(#a)">
+        <g clipPath="url(#a)">
           <path
             fill="#FFDA44"
             d="M14 28c7.732 0 14-6.268 14-14S21.732 0 14 0 0 6.268 0 14s6.268 14 14 14Z"
