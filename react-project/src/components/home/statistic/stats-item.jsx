@@ -1,16 +1,23 @@
+import BorderImg from "../../image/border.jpg";
 import styled from 'styled-components';
 
 const WrappStats = styled.div`
+  width: 100%;
+  padding: 40px 0 40px 0;
+  position: relative;
+`;
+
+const BorderImage = styled.img`
 width: 100%;
-padding: 40px 0 40px 0;
-  border: 1px dashes #9fbaae;
-  border-radius: 30px;
 `;
 
 const ListContainer = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const ListStats = styled.li`
@@ -39,10 +46,15 @@ const DescStats = styled.p`
   font-size: 14px;
   color: #121417;
   margin-left: 16px;
+  word-wrap: break-word;
+  &: nth-child(2n){
+    width: 90px;
+  }
 `;
 const StatsItem = () => {
     return (
       <WrappStats>
+        <BorderImage src={BorderImg} alt="Border" />
         <ListContainer>
           <ListStats>
             <TitleStats>32,000</TitleStats>
