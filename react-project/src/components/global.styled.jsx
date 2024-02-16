@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyled = createGlobalStyle`
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,10 +19,12 @@ code {
 h1, h2, h3, h4, h5, h6{
   padding: 0;
   margin: 0;
- 
 }
 
-
+ul{
+  padding: 0;
+  margin: 0;
+}
 
 li{
   list-style: none;
@@ -28,3 +33,9 @@ li{
 a{
   text-decoration: none;
 }
+
+p{
+  padding: 0;
+  margin: 0;
+}
+`;

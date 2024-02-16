@@ -1,6 +1,12 @@
+import Home from "../components/home/home";
+import StatisticBlock from "../components/home/statistic/stats-block";
+
 const HomePage = () => {
     return (
-        <h1>Home Page</h1>
+        <div>
+            <Home />
+            <StatisticBlock/>
+       </div>
     )
 }
 
