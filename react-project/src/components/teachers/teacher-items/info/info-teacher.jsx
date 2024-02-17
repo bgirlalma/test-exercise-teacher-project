@@ -1,7 +1,7 @@
 import { StarSvg } from "../../../image/Star";
 import { BookSvg } from "../../../image/book-open";
 
-const RatingTeacher = () => {
+const InfoTeacher = () => {
     return (
       <div>
         <ul>
@@ -24,4 +24,4 @@ const RatingTeacher = () => {
     );
 }
 
-export default RatingTeacher;
+export default InfoTeacher;
