@@ -7,11 +7,14 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Layout/>}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+        </Route>
+
+        <Route>
           <Route path="/teachers" element={<TeacherPage />} />
         </Route>
-</Routes>
+      </Routes>
     </div>
   );
 }
