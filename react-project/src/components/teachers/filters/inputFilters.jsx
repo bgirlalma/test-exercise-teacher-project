@@ -1,46 +1,72 @@
-// import { LiaDollarSignSolid } from "react-icons/lia";
+import { LiaDollarSignSolid } from "react-icons/lia";
 import { DownVectorSvg } from "../../image/down-vector";
+import {
+  WrappFormContainer,
+  FormContainerLanguages,
+  Label,
+  InputLanguages,
+  FormContainerLevel,
+  InputLevel,
+  FormContainerPrice,
+  InputPrice,
+  IconWrapp,
+  DropdownList,
+  StyledList,
+} from "./inputFilter.styled";
 
 
 const FilterTeacher = () => {
     return (
       <div>
-        <div>
-          <form>
-            <label htmlFor="languages">Languages</label>
-            <select name="languages" id="select-languages">
-              <option value="French">French</option>
-              <option value="English">English</option>
-              <option value="Spanish">Spanish</option>
-              <option value="German">German</option>
-            </select>
-            <div>
-              <DownVectorSvg />
-            </div>
+        <WrappFormContainer>
+          <div>
+            <FormContainerLanguages>
+              <Label htmlFor="languages">Languages</Label>
+              <InputLanguages type="text" name="languages" />
+              <IconWrapp>
+                <DownVectorSvg />
+              </IconWrapp>
+            </FormContainerLanguages>
+            <DropdownList>
+              <StyledList>English</StyledList>
+              <StyledList>Spanish</StyledList>
+              <StyledList>German</StyledList>
+              <StyledList>Polish</StyledList>
+            </DropdownList>
+          </div>
 
-            <label htmlFor="level">Level of knowledge</label>
-            <select name="level" id="select-level">
-              <option value="Beginner"> A1 Beginner</option>
-              <option value="Elementary">A2 Elementary</option>
-              <option value="Intermediate">B1 Intermediate</option>
-              <option value="Upper-Intermediate">B2 Upper-Intermediate</option>
-            </select>
-            <div>
-              <DownVectorSvg />
-            </div>
+          <div>
+            <FormContainerLevel>
+              <Label htmlFor="level">Level of knowledge</Label>
+              <InputLevel type="text" name="level" />
+              <IconWrapp>
+                <DownVectorSvg />
+              </IconWrapp>
+            </FormContainerLevel>
+            <DropdownList>
+              <StyledList>A1 Beginner</StyledList>
+              <StyledList>A2 Elementary</StyledList>
+              <StyledList>B1 Intermediate</StyledList>
+              <StyledList> B2 Upper-Intermediate</StyledList>
+            </DropdownList>
+          </div>
 
-            <label htmlFor="price">Price</label>
-            <select name="price" id="select-price">
-              <option value="30">30</option>
-              <option value="40">40</option>
-              <option value="50">50</option>
-              <option value="60">60</option>
-            </select>
-            <div>
-              <DownVectorSvg />
-            </div>
-          </form>
-        </div>
+          <div>
+            <FormContainerPrice>
+              <Label htmlFor="price">Price</Label>
+              <InputPrice type="text" name="price" />
+              <IconWrapp>
+                <DownVectorSvg />
+              </IconWrapp>
+            </FormContainerPrice>
+            <DropdownList>
+              <StyledList>5 <LiaDollarSignSolid/></StyledList>
+              <StyledList>10 <LiaDollarSignSolid/></StyledList>
+              <StyledList>15 <LiaDollarSignSolid/></StyledList>
+              <StyledList>30 <LiaDollarSignSolid/></StyledList>
+            </DropdownList>
+          </div>
+        </WrappFormContainer>
       </div>
     );
 }

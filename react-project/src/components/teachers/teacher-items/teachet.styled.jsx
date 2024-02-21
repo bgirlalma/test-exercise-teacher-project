@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const WrappContainer = styled.div`
-`;
+export const WrappContainer = styled.div``;
 
 export const TeacherList = styled.li`
   display: grid;
@@ -85,6 +84,7 @@ export const ButtonWrapp = styled.div`
 `;
 
 export const LoadMoreButton = styled.button`
+  padding: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -94,6 +94,6 @@ export const LoadMoreButton = styled.button`
   height: 60px;
   border: none;
   border-radius: 12px;
-  background-color: #f4c550;
+  background-color: #9fbaae;
   margin-top: 64px;
 `;
