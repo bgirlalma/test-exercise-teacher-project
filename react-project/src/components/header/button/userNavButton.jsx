@@ -40,10 +40,10 @@ const UserNavButton = () => {
     <WrappNavButton>
       <LogInButton>
         <LoginSvg />
-        <TitleButton>Log in</TitleButton>
+        <TitleButton to="/login">Log in</TitleButton>
       </LogInButton>
       <RegistrationNavButton>
-        <TitleRegButton>Registration</TitleRegButton>
+        <TitleRegButton to="/register">Registration</TitleRegButton>
       </RegistrationNavButton>
     </WrappNavButton>
   );
