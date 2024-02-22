@@ -1,27 +1,30 @@
-import { Formik, Form, Field, ErrorMessage,  } from "formik";
+import { Formik, ErrorMessage,  } from "formik";
 import { CloseSvg } from "../../image/close";
-import { WrappContainer, TextContainer, Title, Desc } from "../../login/login.styled";
+import { Container, FormContainer, WrappIcon, TitleForm, DescForm, WrappForm, StyledField, ButtonModal } from "./login.styled";
 
-const LogIn = () => {
-    return (
-      <WrappContainer>
-        <CloseSvg />
-        <TextContainer>
-          <Title>Log In</Title>
-          <Desc>
+const UserLogIn = () => {
+  return (
+    <Container>
+      <FormContainer>
+        <WrappIcon>
+          <CloseSvg />
+        </WrappIcon>
+        <div>
+          <TitleForm>Log In</TitleForm>
+          <DescForm>
             Welcome back! Please enter your credentials to access your account
             and continue your search for an teacher.
-          </Desc>
-        </TextContainer>
+          </DescForm>
+        </div>
 
         <Formik>
-          <Form
+          <WrappForm
             initialValues={{
               email: "",
               password: "",
             }}
           >
-            <Field
+            <StyledField
               name="email"
               id="email"
               type="text"
@@ -31,7 +34,7 @@ const LogIn = () => {
             />
             <ErrorMessage name="email" component="div" />
 
-            <Field
+            <StyledField
               id="password"
               name="password"
               type="password"
@@ -39,11 +42,12 @@ const LogIn = () => {
             />
             <ErrorMessage name="password" component="div" />
 
-            <button type="submit">Log In</button>
-          </Form>
+            <ButtonModal type="submit">Log In</ButtonModal>
+          </WrappForm>
         </Formik>
-      </WrappContainer>
-    );
+      </FormContainer>
+    </Container>
+  );
 }
 
-export default LogIn;
+export default UserLogIn;
