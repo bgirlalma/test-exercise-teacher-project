@@ -52,7 +52,7 @@ export const StyledField = styled(Field)`
   border-radius: 12px;
   padding: 0 0 0 18px;
 
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 137%;
@@ -61,6 +61,13 @@ export const StyledField = styled(Field)`
 
   &:last-child {
     margin-bottom: 40px;
+  }
+
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #6699cc;
   }
 `;
 
@@ -71,10 +78,17 @@ export const ButtonModal = styled.button`
   padding: 0;
   border-radius: 12px;
   border: none;
+  cursor: pointer;
+  transition: 1s ease-in-out;
 
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 156%;
   color: #121417;
+
+  &:hover{
+    background-color: #b34700;
+    color: #fff;
+  }
 `;
