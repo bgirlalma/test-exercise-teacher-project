@@ -12,11 +12,13 @@ import {
 } from './registration.styled';
 import * as Yup from 'yup';
 
+// початковий state форми
 const initialValues = {
   name: '',
   email: '',
   password: '',
 };
+
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -31,8 +33,9 @@ const SignupSchema = Yup.object().shape({
 });
 
 const UserRegistration = () => {
-  const handleSubmit = async e => {
-    e.preventDefault();
+
+  const handleSubmit = async (email, password, {resetForm}) => {
+
   };
   return (
     <Container>

@@ -31,10 +31,8 @@ const SignupSchema = Yup.object().shape({
 
 const UserLogIn = () => {
   // const dispatch = useDispatch()
-  const handleChange = async(e) => {
-    e.preventDefaul();
-    const value = e.tardet.value;
-    console.log(value);
+  const handleChange = async(email, password, {resetForm}) => {
+  
 
   };
   return (
