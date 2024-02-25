@@ -1,32 +1,37 @@
-// import firebase from 'firebase/app';
-// import 'firebase/analytics';
-// import { configureStore } from '@reduxjs/toolkit';
-// // import { userReduser } from './user-autorization/useSlice';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { authReduser } from './user-autorization/userSlice';
+import storage from 'redux-persist/lib/storage';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['getTeachers'],
+};
 
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyAmQjTlH7zf9Tc_kneK9KW-u-UipXko80M',
-//   authDomain: 'teacher-app-cb18f.firebaseapp.com',
-//   projectId: 'teacher-app-cb18f',
-//   storageBucket: 'teacher-app-cb18f.appspot.com',
-//   messagingSenderId: '1044018537013',
-//   appId: '1:1044018537013:web:964607b41befb0c10f077c',
-//   measurementId: 'G-FRRSD9S560',
-// };
+const rootReduser = combineReducers({
+  userAuth: authReduser,
+});
 
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+const persistedReducer = persistReducer(persistConfig, rootReduser);
 
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
 
-// const store = configureStore({
-//   // reducer: {
-//   //   userAuth: userReduser,
-//   // },
-// });
-
-// export default store;
+export const persistor = persistStore(store);
