@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userRegister, userLogin, userLogout } from './authOperation.jsx';
+import { registerUser, userLogin, userLogout } from './authOperation.jsx';
 
 const initialState = {
   user: { name: null, email: null, password: null },
@@ -13,7 +13,7 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(userRegister.pending, state => {
+      .addCase(registerUser.pending, state => {
         state.isLoader = true;
       })
       .addCase(userLogin.pending, state => {
@@ -22,7 +22,7 @@ const userSlice = createSlice({
       .addCase(userLogout.pending, state => {
         state.isLoader = true;
       })
-      .addCase(userRegister.fulfilled, (state, action) => {
+      .addCase(registerUser.fulfilled, (state, action) => {
         state.user.email = action.payload.email;
         state.user.name = action.payload.displayName;
         state.user.uid = action.payload.uid;
@@ -41,18 +41,18 @@ const userSlice = createSlice({
         state.isLoader = false;
         state.isLoggIn = false;
       })
-      .addCase(userRegister.rejected, (state, action) => {
-          state.isLoader = false;
-          state.error = action.payload;
+      .addCase(registerUser.rejected, (state, action) => {
+        state.isLoader = false;
+        state.error = action.payload;
       })
-        .addCase(userLogin.rejected, (state, action) => {
-            state.isLoader = false;
-            state.error = action.payload;
-        })
-        .addCase(userLogout.rejected, (state, action) => {
-            state.isLoader = false;
-            state.error = action.payload;
+      .addCase(userLogin.rejected, (state, action) => {
+        state.isLoader = false;
+        state.error = action.payload;
       })
+      .addCase(userLogout.rejected, (state, action) => {
+        state.isLoader = false;
+        state.error = action.payload;
+      });
   },
 });
 

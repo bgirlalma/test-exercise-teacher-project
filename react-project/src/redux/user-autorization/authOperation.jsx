@@ -5,29 +5,31 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { auth } from './firebase';
+import { auth } from '../../config/firebase';
 
-export const userRegister = createAsyncThunk(
-  'user/userRegister',
-  async (user, thunkApi) => {
+export const registerUser = createAsyncThunk(
+  'userAuth/registerUser',
+  async (body, thunkAPI) => {
     try {
-      const res = await createUserWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
-        user.name,
-        user.email,
-        user.password
+        body.email,
+        body.password,
+        body.name
       );
-      await updateProfile(auth.createUser, { displayName: user.name });
+      await updateProfile(auth.currentUser, { displayName: body.name });
+
       const { uid, displayName, email } = auth.currentUser;
+
       return { uid, displayName, email };
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const userLogin = createAsyncThunk(
-  'user/userLogin',
+  'userAuth/userLogin',
   async (user, thunkApi) => {
     try {
       const res = await signInWithEmailAndPassword(
@@ -45,7 +47,7 @@ export const userLogin = createAsyncThunk(
 );
 
 export const userLogout = createAsyncThunk(
-  'user/userLogout',
+  'userAuth/userLogout',
   async (userId, thunkApi) => {
     try {
       const res = await signOut(auth);

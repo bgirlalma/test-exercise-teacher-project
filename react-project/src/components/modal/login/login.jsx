@@ -10,8 +10,9 @@ import {
   StyledField,
   ButtonModal,
 } from './login.styled';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { userLogin } from '../../../redux/user-autorization/authOperation';
 
 const initialValues = {
   email: '',
@@ -30,11 +31,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 const UserLogIn = () => {
-  // const dispatch = useDispatch()
-  const handleChange = async(email, password, {resetForm}) => {
-  
+  const dispatch = useDispatch()
 
-  };
   return (
     <Container>
       <FormContainer>
@@ -52,7 +50,10 @@ const UserLogIn = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={SignupSchema}
-          onSubmit={handleChange}
+          onSubmit={(values, { resetForm }) => {
+            dispatch(userLogin(values))
+            resetForm()
+          }}
         >
           {({ values, handleChange, handleBlur, handleSubmit }) => (
             <WrappForm>
