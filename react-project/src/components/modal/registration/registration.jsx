@@ -1,17 +1,42 @@
-import { Formik, ErrorMessage } from "formik";
-import { CloseSvg } from "../../image/close";
+import { Formik, ErrorMessage } from 'formik';
+import { CloseSvg } from '../../image/close';
 import {
   Container,
-FormContainer,
+  FormContainer,
   WrappIcon,
   TitleForm,
   DescForm,
   WrappForm,
-    StyledField,
+  StyledField,
   ButtonModal,
-} from "./registration.styled";
+} from './registration.styled';
+import * as Yup from 'yup';
+
+// початковий state форми
+const initialValues = {
+  name: '',
+  email: '',
+  password: '',
+};
+
+
+const SignupSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(5, 'Too Short!')
+    .max(15, 'Too Long!')
+    .required('Required'),
+  email: Yup.string().min(10, 'Too Short!').required('Required'),
+  password: Yup.string()
+    .min(10, 'Too Short!')
+    .max(15, 'Too Long!')
+    .required('Required'),
+});
 
 const UserRegistration = () => {
+
+  const handleSubmit = async (email, password, {resetForm}) => {
+
+  };
   return (
     <Container>
       <FormContainer>
@@ -26,46 +51,46 @@ const UserRegistration = () => {
             information
           </DescForm>
         </div>
-        <Formik>
-          <WrappForm
-          //   initialValues={{
-          //     name: "",
-          //     email: "",
-          //     password: "",
-          //   }}
-          >
-            <StyledField
-              name="name"
-              id="name"
-              type="text"
-              autoComplete="off"
-              required
-              placeholder="Name"
-            />
-            <ErrorMessage name="name" component="div" />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={SignupSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ values, handleChange, handleBlur, handleSubmit }) => (
+            <WrappForm>
+              <StyledField
+                name="name"
+                id="name"
+                type="text"
+                autoComplete="off"
+                required
+                placeholder="Name"
+              />
+              <ErrorMessage name="name" component="div" />
 
-            <StyledField
-              name="email"
-              id="email"
-              type="text"
-              autoComplete="off"
-              required
-              placeholder="Email"
-            />
-            <ErrorMessage name="email" component="div" />
+              <StyledField
+                name="email"
+                id="email"
+                type="text"
+                autoComplete="off"
+                required
+                placeholder="Email"
+              />
+              <ErrorMessage name="email" component="div" />
 
-            <StyledField
-              name="password"
-              id="password"
-              type="password"
-              autoComplete="off"
-              required
-              placeholder="Password"
-            />
-            <ErrorMessage name="password" component="div" />
+              <StyledField
+                name="password"
+                id="password"
+                type="password"
+                autoComplete="off"
+                required
+                placeholder="Password"
+              />
+              <ErrorMessage name="password" component="div" />
 
-            <ButtonModal type="submit">Sign Up</ButtonModal>
-          </WrappForm>
+              <ButtonModal type="submit">Sign Up</ButtonModal>
+            </WrappForm>
+          )}
         </Formik>
       </FormContainer>
     </Container>

@@ -15,10 +15,23 @@ const LogInButton = styled.button`
 `;
 
 const TitleButton = styled(NavLink)`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #121417;
   margin-left: 8px;
+
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color:  #6699cc;
+  }
+`;
+
+const TitleRegButton = styled(NavLink)`
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
 `;
 
 const RegistrationNavButton = styled.button`
@@ -28,13 +41,19 @@ const RegistrationNavButton = styled.button`
   border-radius: 12px;
   background-color: #121417;
   margin-left: 16px;
+
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #6699cc;
+
+    ${TitleRegButton}{
+      color: #121417;
+    }
+  }
 `;
 
-const TitleRegButton = styled(NavLink)`
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  color: #fff;
-`;
 const UserNavButton = () => {
   return (
     <WrappNavButton>
