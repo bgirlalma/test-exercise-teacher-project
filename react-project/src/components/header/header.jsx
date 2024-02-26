@@ -1,3 +1,5 @@
+import { useAuth } from "../../hooks/userHook";
+import UserMenu from "../useMenu/userMenu";
 import UserNavButton from "./button/userNavButton";
 import Logo from "./logo";
 import Navigation from "./navigation/nav";
@@ -13,11 +15,12 @@ const HeaderContainer = styled.div`
   padding-bottom: 20px;
 `;
 const Header = () => {
+    const {isLoggIn} = useAuth()
     return (
         <HeaderContainer>
             <Logo />
             <Navigation />
-            <UserNavButton/>
+            {isLoggIn ? <UserNavButton/> : <UserMenu/>}
         </HeaderContainer>
     )
 }
