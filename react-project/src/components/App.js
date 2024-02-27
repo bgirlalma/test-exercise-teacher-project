@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import { lazy } from "react";
-import { RestrictedRoute } from "./RestrictedRoute";
-import { PrivateRouter } from "./PrivateRouter";
+// import { RestrictedRoute } from "./RestrictedRoute";
+// import { PrivateRouter } from "./PrivateRouter";
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const UserLogIn = lazy(() => import('./modal/login/login'));
@@ -17,28 +17,25 @@ function App() {
           <Route
             index
             element={
-              <RestrictedRoute redirectTo="/teachers" component={HomePage} />
+             <HomePage/>
             }
           />
           <Route
             path="/login"
             element={
-              <RestrictedRoute redirectTo="/teachers" component={UserLogIn} />
+             <UserLogIn/>
             }
           />
           <Route
             path="/register"
             element={
-              <RestrictedRoute
-                redirectTo="/teachers"
-                component={UserRegistration}
-              />
+             <UserRegistration/>
             }
           />
           <Route
             path="/teachers"
             element={
-              <PrivateRouter redirectTo="/login" component={TeacherPage} />
+              <TeacherPage/>
             }
           />
         </Route>

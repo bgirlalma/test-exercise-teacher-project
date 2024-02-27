@@ -29,30 +29,32 @@ export const registerUser = createAsyncThunk(
 );
 
 export const userLogin = createAsyncThunk(
-  'userAuth/userLogin',
-  async (user, thunkApi) => {
+  'userAuth/loginUser',
+  async (body, thunkAPI) => {
     try {
       const res = await signInWithEmailAndPassword(
         auth,
-        user.email,
-        user.password
+        body.email,
+        body.password
       );
-      await updateProfile(auth.currentUser, { displayName: user.name });
-      const { uid, displayName, email } = user.currentUser;
+      await updateProfile(auth.currentUser, { displayName: body.name });
+
+      const { uid, displayName, email } = auth.currentUser;
+
       return { uid, displayName, email };
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const userLogout = createAsyncThunk(
-  'userAuth/userLogout',
-  async (userId, thunkApi) => {
+export const logoutUser = createAsyncThunk(
+  'userAuth/logoutUser',
+  async (userId, thunkAPI) => {
     try {
       const res = await signOut(auth);
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

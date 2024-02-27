@@ -1,14 +1,20 @@
 import { useSelector } from "react-redux"
 import {
-  selectedUser,
   selectedIsLoggIn,
+  selectedUserName,
+  selectedUserEmail,
 } from '../redux/user-autorization/userSelector';
 
 export const useAuth = () => {
   const isLoggIn = useSelector(selectedIsLoggIn);
-    console.log(isLoggIn);
+  console.log(isLoggIn);
+  const userName = useSelector(selectedUserName);
+  console.log(userName);
+  const userEmail = useSelector(selectedUserEmail);
+   console.log(userEmail);
   return {
     isLoggIn,
-    user: useSelector(selectedUser),
+    userName,
+    userEmail,
   };
 };

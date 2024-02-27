@@ -21,23 +21,16 @@ const TitleTeacherNav = styled(NavLink)`
   margin-left: 28px;
 `;
 const Navigation = () => {
-  const { isLoggIn } = useAuth()
-  const [isLoggedIn, setIsLoggedIn] = useState(isLoggIn);
-  
-  useEffect(() => {
-setIsLoggedIn(isLoggIn)
-  }, [isLoggIn])
+
   return (
     <nav>
       <WrappNav>
         <li>
           <TitleHomeNav to="/">Home</TitleHomeNav>
-        </li>
-        {isLoggedIn && (
+        </li>      
           <li>
             <TitleTeacherNav to="/teachers">Teachers</TitleTeacherNav>
-          </li>
-        )}
+          </li>   
       </WrappNav>
     </nav>
   );
