@@ -34,7 +34,7 @@ const FilterTeacher = () => {
               <InputLanguages
                 type="text"
                 name="languages"
-                placeholder="Languages"
+                placeholder="English"
                 onClick={() => setIsOpenSelectLanguages(!isOpenSelectLanguages)}
                 onFocus={handleFocus}
               />
@@ -59,7 +59,7 @@ const FilterTeacher = () => {
               <InputLevel
                 type="text"
                 name="level"
-                placeholder="Level"
+                placeholder="A1 Beginner"
                 onClick={() => setIsOpenSelectLevel(!iseOpenSelectLevel)}
                 onFocus={handleFocus}
               />
