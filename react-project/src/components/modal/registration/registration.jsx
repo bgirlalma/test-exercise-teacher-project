@@ -13,6 +13,7 @@ import {
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../redux/user-autorization/authOperation';
+import { useState } from 'react';
 
 // початковий state форми
 const initialValues = {
@@ -35,31 +36,34 @@ const SignupSchema = Yup.object().shape({
 });
 
 const UserRegistration = () => {
-  // const [auth, setAuth] = useState(null);
 const dispatch = useDispatch()
-
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  
+  const handleClose = () => {
+    setIsOpenModal(false);
+  }
   return (
     <Container>
-      <FormContainer>
-        <WrappIcon>
-          <CloseSvg />
-        </WrappIcon>
-        <div>
-          <TitleForm>Registration</TitleForm>
-          <DescForm>
-            Thank you for your interest in our platform! In order to register,
-            we need some information. Please provide us with the following
-            information
-          </DescForm>
-        </div>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={SignupSchema}
-          onSubmit={(values, {resetForm}) => {
-            dispatch(registerUser(values));
-            resetForm()
-          }}
-        >
+        <FormContainer>
+          <WrappIcon onClick={handleClose}>
+            <CloseSvg />
+          </WrappIcon>
+          <div>
+            <TitleForm>Registration</TitleForm>
+            <DescForm>
+              Thank you for your interest in our platform! In order to register,
+              we need some information. Please provide us with the following
+              information
+            </DescForm>
+          </div>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={SignupSchema}
+            onSubmit={(values, { resetForm }) => {
+              dispatch(registerUser(values));
+              resetForm();
+            }}
+          >
             <WrappForm>
               <StyledField
                 name="name"
@@ -93,8 +97,8 @@ const dispatch = useDispatch()
 
               <ButtonModal type="submit">Sign Up</ButtonModal>
             </WrappForm>
-        </Formik>
-      </FormContainer>
+          </Formik>
+        </FormContainer>
     </Container>
   );
 };

@@ -44,8 +44,7 @@ export const userLogin = createAsyncThunk(
 
       return { uid, displayName, email };
     } catch (error) {
-      // return thunkAPI.rejectWithValue(error.message);
-      console.error('Ошибка входа в систему:', error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
