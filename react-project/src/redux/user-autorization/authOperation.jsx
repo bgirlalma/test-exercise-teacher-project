@@ -37,13 +37,15 @@ export const userLogin = createAsyncThunk(
         body.email,
         body.password
       );
+      console.log('Пользователь успешно вошел в систему:', res);
       await updateProfile(auth.currentUser, { displayName: body.name });
 
       const { uid, displayName, email } = auth.currentUser;
 
       return { uid, displayName, email };
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      // return thunkAPI.rejectWithValue(error.message);
+      console.error('Ошибка входа в систему:', error.message);
     }
   }
 );

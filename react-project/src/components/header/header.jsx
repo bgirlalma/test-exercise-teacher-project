@@ -5,9 +5,8 @@ import UserNavButton from "./button/userNavButton";
 import Logo from "./logo";
 import Navigation from "./navigation/nav";
 import styled from "styled-components";
-import { logoutUser } from "../../redux/user-autorization/authOperation";
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,19 +16,13 @@ const HeaderContainer = styled.div`
   padding-bottom: 20px;
 `;
 const Header = () => {
-    const dispatch = useDispatch();
 
-    const handleLogout = async () => {
-        console.log('Выход из учетной записи');
-        dispatch(logoutUser());
-      };
     const {isLoggIn} = useAuth()
     return (
       <HeaderContainer>
         <Logo />
         <Navigation />
-       {isLoggIn ?  <UserNavButton /> :  <UserMenu logout={handleLogout} />}
-      
+        {isLoggIn ? <UserNavButton /> : <UserMenu />}
       </HeaderContainer>
     );
 }

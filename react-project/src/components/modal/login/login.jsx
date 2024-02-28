@@ -55,7 +55,6 @@ const UserLogIn = () => {
             resetForm()
           }}
         >
-          {({ values, handleChange, handleBlur, handleSubmit }) => (
             <WrappForm>
               <StyledField
                 name="email"
@@ -77,7 +76,6 @@ const UserLogIn = () => {
 
               <ButtonModal type="submit">Log In</ButtonModal>
             </WrappForm>
-          )}
         </Formik>
       </FormContainer>
     </Container>

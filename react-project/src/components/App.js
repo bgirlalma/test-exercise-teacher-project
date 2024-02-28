@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import { lazy } from "react";
+import { RestrictedRoute } from "./RestrictedRoute";
 // import { RestrictedRoute } from "./RestrictedRoute";
 // import { PrivateRouter } from "./PrivateRouter";
 
@@ -23,7 +24,7 @@ function App() {
           <Route
             path="/login"
             element={
-             <UserLogIn/>
+            <RestrictedRoute redirectTo="/" component={<UserLogIn/>}/>
             }
           />
           <Route
