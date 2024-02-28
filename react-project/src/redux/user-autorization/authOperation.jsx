@@ -5,52 +5,58 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { auth } from './firebase';
+import { auth } from '../../config/firebase';
 
-export const userRegister = createAsyncThunk(
-  'user/userRegister',
-  async (user, thunkApi) => {
+export const registerUser = createAsyncThunk(
+  'userAuth/registerUser',
+  async (body, thunkAPI) => {
     try {
-      const res = await createUserWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
-        user.name,
-        user.email,
-        user.password
+        body.email,
+        body.password,
+        body.name
       );
-      await updateProfile(auth.createUser, { displayName: user.name });
+      await updateProfile(auth.currentUser, { displayName: body.name });
+
       const { uid, displayName, email } = auth.currentUser;
+
       return { uid, displayName, email };
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const userLogin = createAsyncThunk(
-  'user/userLogin',
-  async (user, thunkApi) => {
+  'userAuth/loginUser',
+  async (body, thunkAPI) => {
     try {
       const res = await signInWithEmailAndPassword(
         auth,
-        user.email,
-        user.password
+        body.email,
+        body.password
       );
-      await updateProfile(auth.currentUser, { displayName: user.name });
-      const { uid, displayName, email } = user.currentUser;
+      console.log('Пользователь успешно вошел в систему:', res);
+      await updateProfile(auth.currentUser, { displayName: body.name });
+
+      const { uid, displayName, email } = auth.currentUser;
+
       return { uid, displayName, email };
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      // return thunkAPI.rejectWithValue(error.message);
+      console.error('Ошибка входа в систему:', error.message);
     }
   }
 );
 
-export const userLogout = createAsyncThunk(
-  'user/userLogout',
-  async (userId, thunkApi) => {
+export const logoutUser = createAsyncThunk(
+  'userAuth/logoutUser',
+  async (userId, thunkAPI) => {
     try {
       const res = await signOut(auth);
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

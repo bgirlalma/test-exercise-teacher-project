@@ -11,6 +11,8 @@ import {
   ButtonModal,
 } from './registration.styled';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../../redux/user-autorization/authOperation';
 
 // початковий state форми
 const initialValues = {
@@ -22,10 +24,10 @@ const initialValues = {
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(5, 'Too Short!')
+    .min(3, 'Too Short!')
     .max(15, 'Too Long!')
     .required('Required'),
-  email: Yup.string().min(10, 'Too Short!').required('Required'),
+  email: Yup.string().min(8, 'Too Short!').required('Required'),
   password: Yup.string()
     .min(10, 'Too Short!')
     .max(15, 'Too Long!')
@@ -33,10 +35,9 @@ const SignupSchema = Yup.object().shape({
 });
 
 const UserRegistration = () => {
+  // const [auth, setAuth] = useState(null);
+const dispatch = useDispatch()
 
-  const handleSubmit = async (email, password, {resetForm}) => {
-
-  };
   return (
     <Container>
       <FormContainer>
@@ -54,9 +55,11 @@ const UserRegistration = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={SignupSchema}
-          onSubmit={handleSubmit}
+          onSubmit={(values, {resetForm}) => {
+            dispatch(registerUser(values));
+            resetForm()
+          }}
         >
-          {({ values, handleChange, handleBlur, handleSubmit }) => (
             <WrappForm>
               <StyledField
                 name="name"
@@ -90,7 +93,6 @@ const UserRegistration = () => {
 
               <ButtonModal type="submit">Sign Up</ButtonModal>
             </WrappForm>
-          )}
         </Formik>
       </FormContainer>
     </Container>

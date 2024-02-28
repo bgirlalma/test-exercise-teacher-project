@@ -1,9 +1,12 @@
+import { useDispatch } from "react-redux";
+import { useAuth } from "../../hooks/userHook";
+import UserMenu from "../useMenu/userMenu";
 import UserNavButton from "./button/userNavButton";
 import Logo from "./logo";
 import Navigation from "./navigation/nav";
 import styled from "styled-components";
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,13 +16,15 @@ const HeaderContainer = styled.div`
   padding-bottom: 20px;
 `;
 const Header = () => {
+
+    const {isLoggIn} = useAuth()
     return (
-        <HeaderContainer>
-            <Logo />
-            <Navigation />
-            <UserNavButton/>
-        </HeaderContainer>
-    )
+      <HeaderContainer>
+        <Logo />
+        <Navigation />
+        {isLoggIn ? <UserNavButton /> : <UserMenu />}
+      </HeaderContainer>
+    );
 }
 
 export default Header;

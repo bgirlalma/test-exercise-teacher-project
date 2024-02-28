@@ -10,62 +10,105 @@ import {
   FormContainerPrice,
   InputPrice,
   IconWrapp,
+  DropdownContainer,
   DropdownList,
   StyledList,
-} from "./inputFilter.styled";
+} from './inputFilter.styled';
+import { useState } from "react";
 
 
 const FilterTeacher = () => {
+  const [isOpenSelectLanguages, setIsOpenSelectLanguages] = useState(false);
+  const [iseOpenSelectLevel, setIsOpenSelectLevel] = useState(false)
+  const [isOpenSelectPrice, setIsOpenSelectPrice] = useState(false)
+
+  const handleFocus = (e) => {
+    e.target.blur()
+  }
     return (
       <div>
         <WrappFormContainer>
-          <div>
+          <DropdownContainer>
             <FormContainerLanguages>
               <Label htmlFor="languages">Languages</Label>
-              <InputLanguages type="text" name="languages" />
-              <IconWrapp>
+              <InputLanguages
+                type="text"
+                name="languages"
+                placeholder="English"
+                onClick={() => setIsOpenSelectLanguages(!isOpenSelectLanguages)}
+                onFocus={handleFocus}
+              />
+              {/* пропс який не додається в DOM $isOpen, але стилізується */}
+              <IconWrapp $isOpen={isOpenSelectLanguages}>
                 <DownVectorSvg />
               </IconWrapp>
             </FormContainerLanguages>
-            <DropdownList>
-              <StyledList>English</StyledList>
-              <StyledList>Spanish</StyledList>
-              <StyledList>German</StyledList>
-              <StyledList>Polish</StyledList>
-            </DropdownList>
-          </div>
+            {isOpenSelectLanguages && (
+              <DropdownList>
+                <StyledList>English</StyledList>
+                <StyledList>Spanish</StyledList>
+                <StyledList>German</StyledList>
+                <StyledList>Polish</StyledList>
+              </DropdownList>
+            )}
+          </DropdownContainer>
 
-          <div>
+          <DropdownContainer>
             <FormContainerLevel>
               <Label htmlFor="level">Level of knowledge</Label>
-              <InputLevel type="text" name="level" />
-              <IconWrapp>
+              <InputLevel
+                type="text"
+                name="level"
+                placeholder="A1 Beginner"
+                onClick={() => setIsOpenSelectLevel(!iseOpenSelectLevel)}
+                onFocus={handleFocus}
+              />
+              {/* пропс який не додається в DOM $isOpen, але стилізується */}
+              <IconWrapp $isOpen={iseOpenSelectLevel}>
                 <DownVectorSvg />
               </IconWrapp>
             </FormContainerLevel>
-            <DropdownList>
-              <StyledList>A1 Beginner</StyledList>
-              <StyledList>A2 Elementary</StyledList>
-              <StyledList>B1 Intermediate</StyledList>
-              <StyledList> B2 Upper-Intermediate</StyledList>
-            </DropdownList>
-          </div>
+            {iseOpenSelectLevel && (
+              <DropdownList>
+                <StyledList>A1 Beginner</StyledList>
+                <StyledList>A2 Elementary</StyledList>
+                <StyledList>B1 Intermediate</StyledList>
+                <StyledList> B2 Upper-Intermediate</StyledList>
+              </DropdownList>
+            )}
+          </DropdownContainer>
 
-          <div>
+          <DropdownContainer>
             <FormContainerPrice>
               <Label htmlFor="price">Price</Label>
-              <InputPrice type="text" name="price" />
-              <IconWrapp>
+              <InputPrice
+                type="text"
+                name="price"
+                placeholder="Price"
+                onClick={() => setIsOpenSelectPrice(!isOpenSelectPrice)}
+              />
+              {/* пропс який не додається в DOM $isOpen, але стилізується */}
+              <IconWrapp $isOpen={isOpenSelectPrice}>
                 <DownVectorSvg />
               </IconWrapp>
             </FormContainerPrice>
-            <DropdownList>
-              <StyledList>5 <LiaDollarSignSolid/></StyledList>
-              <StyledList>10 <LiaDollarSignSolid/></StyledList>
-              <StyledList>15 <LiaDollarSignSolid/></StyledList>
-              <StyledList>30 <LiaDollarSignSolid/></StyledList>
-            </DropdownList>
-          </div>
+            {isOpenSelectPrice && (
+              <DropdownList>
+                <StyledList>
+                  5 <LiaDollarSignSolid />
+                </StyledList>
+                <StyledList>
+                  10 <LiaDollarSignSolid />
+                </StyledList>
+                <StyledList>
+                  15 <LiaDollarSignSolid />
+                </StyledList>
+                <StyledList>
+                  30 <LiaDollarSignSolid />
+                </StyledList>
+              </DropdownList>
+            )}
+          </DropdownContainer>
         </WrappFormContainer>
       </div>
     );
