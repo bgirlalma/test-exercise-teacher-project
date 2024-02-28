@@ -34,6 +34,7 @@ const FilterTeacher = () => {
               <InputLanguages
                 type="text"
                 name="languages"
+                placeholder="Languages"
                 onClick={() => setIsOpenSelectLanguages(!isOpenSelectLanguages)}
                 onFocus={handleFocus}
               />
@@ -58,6 +59,7 @@ const FilterTeacher = () => {
               <InputLevel
                 type="text"
                 name="level"
+                placeholder="Level"
                 onClick={() => setIsOpenSelectLevel(!iseOpenSelectLevel)}
                 onFocus={handleFocus}
               />
@@ -82,6 +84,7 @@ const FilterTeacher = () => {
               <InputPrice
                 type="text"
                 name="price"
+                placeholder="Price"
                 onClick={() => setIsOpenSelectPrice(!isOpenSelectPrice)}
               />
               {/* пропс який не додається в DOM $isOpen, але стилізується */}
