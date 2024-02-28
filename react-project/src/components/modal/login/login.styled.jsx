@@ -13,11 +13,13 @@ export const FormContainer = styled.div`
   padding: 64px;
 `;
 
-export const WrappIcon = styled.div`
+export const WrappIcon = styled.button`
   position: absolute;
   top: 0;
   right: 0;
   margin: 20px 20px 0 0;
+  border: none;
+  background-color: inherit;
 `;
 
 export const TitleForm = styled.h2`

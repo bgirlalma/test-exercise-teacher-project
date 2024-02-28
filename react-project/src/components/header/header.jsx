@@ -22,7 +22,7 @@ const Header = () => {
       <HeaderContainer>
         <Logo />
         <Navigation />
-        {isLoggIn ? <UserNavButton /> : <UserMenu />}
+        {isLoggIn ? <UserMenu/> : <UserNavButton />}
       </HeaderContainer>
     );
 }

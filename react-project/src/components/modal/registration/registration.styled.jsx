@@ -2,8 +2,12 @@ import styled from "styled-components";
 import { Form, Field } from "formik";
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  position: absolute;
+  top: 50;
+  left: 50%;
+  transform: translate(-50%, -50%)
 `;
 export const FormContainer = styled.div`
   position: relative;
@@ -18,6 +22,7 @@ export const WrappIcon = styled.div`
   top: 0;
   right: 0;
   margin: 20px 20px 0 0;
+  z-index: 2;
 `;
 
 export const TitleForm = styled.h2`

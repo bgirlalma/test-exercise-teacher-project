@@ -13,6 +13,8 @@ import {
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { userLogin } from '../../../redux/user-autorization/authOperation';
+import { useState } from 'react';
+import Notiflix from 'notiflix';
 
 const initialValues = {
   email: '',
@@ -33,9 +35,17 @@ const SignupSchema = Yup.object().shape({
 const UserLogIn = () => {
   const dispatch = useDispatch()
 
+  const handleLogin = async(values, {resetForm}) => {
+    try {
+      dispatch(userLogin(values))
+    } catch (error) {
+      Notiflix.Notify.failure('Incorrect password or email!');
+    }
+  }
+
   return (
     <Container>
-      <FormContainer>
+      <FormContainer >
         <WrappIcon>
           <CloseSvg />
         </WrappIcon>
@@ -50,32 +60,29 @@ const UserLogIn = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={SignupSchema}
-          onSubmit={(values, { resetForm }) => {
-            dispatch(userLogin(values))
-            resetForm()
-          }}
+          onSubmit={handleLogin}
         >
-            <WrappForm>
-              <StyledField
-                name="email"
-                id="email"
-                type="text"
-                autoComplete="off"
-                required
-                placeholder="mariafrosina2023@gmail.com"
-              />
-              <ErrorMessage name="email" component="div" />
+          <WrappForm>
+            <StyledField
+              name="email"
+              id="email"
+              type="text"
+              autoComplete="off"
+              required
+              placeholder="mariafrosina2023@gmail.com"
+            />
+            <ErrorMessage name="email" component="div" />
 
-              <StyledField
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="off"
-              />
-              <ErrorMessage name="password" component="div" />
+            <StyledField
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="off"
+            />
+            <ErrorMessage name="password" component="div" />
 
-              <ButtonModal type="submit">Log In</ButtonModal>
-            </WrappForm>
+            <ButtonModal type="submit">Log In</ButtonModal>
+          </WrappForm>
         </Formik>
       </FormContainer>
     </Container>
