@@ -13,8 +13,16 @@ import {
   LoadMoreButton,
 } from "./teachet.styled";
 import teacherData from '../../../teacher-json/teacher.json'
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { teachersList } from "../../../redux/teacher/teacherOperation";
 
 const TeachersItems = () => {
+  const despatch = useDispatch()
+
+  useEffect(() => {
+    despatch(teachersList());
+  })
   return (
     <WrappContainer>
       <ul>

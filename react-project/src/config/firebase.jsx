@@ -19,3 +19,5 @@ export const auth = getAuth(app);
 console.log(auth)
 export const database = getDatabase(app)
 console.log(database)
+
+

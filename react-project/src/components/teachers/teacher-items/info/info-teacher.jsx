@@ -12,24 +12,7 @@ import {
 import { HeartYellowSvg } from '../../../image/heartYellow';
 
 const InfoTeacher = ({ teacher }) => {
-  const [favoriteTeacher, setFavoriteTeacher] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(true);
 
-  useEffect(() => {
-    console.log('Favorite Teachers:', favoriteTeacher);
-    setIsFavorite(favoriteTeacher.includes(teacher))
-  }, [favoriteTeacher, teacher])
-
-  const handleFavorite = () => {
-    // Обновляем список любимых учителей в зависимости от текущего состояния isFavorite
-    if (isFavorite) {
-      setFavoriteTeacher(
-        favoriteTeacher.filter(favTeacher => favTeacher !== teacher)
-      );
-    } else {
-      setFavoriteTeacher([...favoriteTeacher, teacher]);
-    }
-  }
 
   return (
     <Container>
@@ -49,8 +32,8 @@ const InfoTeacher = ({ teacher }) => {
         <Title>Price / 1 hour: {teacher.price_per_hour}</Title>
       </Wrapp>
 
-      <HeartContainer onClick={handleFavorite}>
-        {isFavorite ? <HeartYellowSvg /> : <HeartSvg />}
+      <HeartContainer>
+      <HeartYellowSvg /> : <HeartSvg />
       </HeartContainer>
     </Container>
   );
