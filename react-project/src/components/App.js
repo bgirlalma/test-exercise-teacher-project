@@ -8,6 +8,7 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const UserLogIn = lazy(() => import('./modal/login/login'));
 const UserRegistration = lazy(() => import("./modal/registration/registration"))
 const TeacherPage = lazy(() => import('../pages/TeachersPage'));
+const FavoritePage = lazy(() => import("../pages/FavoritePage"))
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
               <PrivateRouter redirectTo="/login" component={TeacherPage} />
             }
           ></Route>
+
+          <Route path="/favorite" element={<PrivateRouter redirectTo="/login" component={FavoritePage}/> }></Route>
         </Route>
       </Routes>
     </div>
