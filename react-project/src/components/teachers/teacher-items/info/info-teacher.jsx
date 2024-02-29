@@ -31,8 +31,6 @@ const InfoTeacher = ({ teacher }) => {
     }
   }
 
-  console.log('Is Favorite:', isFavorite);
-
   return (
     <Container>
       <Wrapp>
