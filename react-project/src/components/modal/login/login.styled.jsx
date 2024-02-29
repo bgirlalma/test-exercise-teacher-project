@@ -4,22 +4,40 @@ import { Form, Field } from "formik";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  padding-top: 20px;
 `;
 export const FormContainer = styled.div`
-  position: relative;
+  position: fixed;
+  top: -100%; /* начальная позиция за пределами экрана сверху */
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 30px;
   max-width: 565px;
-  background-color: #fff;
+  background-color: #f8f8f8;
   padding: 64px;
-`;
+  border: 1px solid #9fbaae;
 
-export const WrappIcon = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 20px 20px 0 0;
-  border: none;
-  background-color: inherit;
+  animation-name: slideInFromTop;
+  animation-duration: 0.8s;
+  animation-delay: 0s; /* начало анимации сразу */
+  animation-fill-mode: forwards;
+
+  @keyframes slideInFromTop {
+    0% {
+      top: 100%; /* начальная позиция за пределами экрана сверху */
+    }
+    90% {
+      box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+      -webkit-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+      -moz-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+    }
+    100% {
+      box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+      -webkit-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+      -moz-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+      top: 20%; /* конечная позиция на экране по вертикали */
+    }
+  }
 `;
 
 export const TitleForm = styled.h2`

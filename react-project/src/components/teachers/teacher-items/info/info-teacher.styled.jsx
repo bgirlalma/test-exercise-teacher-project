@@ -36,3 +36,9 @@ export const Title = styled.h3`
     display: none;
   }
 `;
+
+export const HeartContainer = styled.button`
+  margin-left: 64px;
+  border: none;
+  background-color: inherit;
+`;

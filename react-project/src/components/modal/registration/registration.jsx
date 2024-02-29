@@ -1,9 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
-import { CloseSvg } from '../../image/close';
 import {
   Container,
   FormContainer,
-  WrappIcon,
   TitleForm,
   DescForm,
   WrappForm,
@@ -13,7 +11,6 @@ import {
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../redux/user-autorization/authOperation';
-import { useState } from 'react';
 
 // початковий state форми
 const initialValues = {
@@ -37,17 +34,9 @@ const SignupSchema = Yup.object().shape({
 
 const UserRegistration = () => {
 const dispatch = useDispatch()
-  const [isOpenModal, setIsOpenModal] = useState(false)
-  
-  const handleClose = () => {
-    setIsOpenModal(false);
-  }
   return (
     <Container>
         <FormContainer>
-          <WrappIcon onClick={handleClose}>
-            <CloseSvg />
-          </WrappIcon>
           <div>
             <TitleForm>Registration</TitleForm>
             <DescForm>

@@ -19,12 +19,10 @@ const Navigation = () => {
         <li>
           <TitleTeacherNav to="/teachers">Teachers</TitleTeacherNav>
         </li>
-        {isLoggIn ? (
+        {isLoggIn && (
           <li>
             <TitleFavoriteNav to="/favorite">Favorite</TitleFavoriteNav>
           </li>
-        ) : (
-          <UserLogIn />
         )}
       </WrappNav>
     </nav>
