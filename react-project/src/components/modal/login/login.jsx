@@ -1,9 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
-import { CloseSvg } from '../../image/close';
 import {
   Container,
   FormContainer,
-  WrappIcon,
   TitleForm,
   DescForm,
   WrappForm,
@@ -13,7 +11,6 @@ import {
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { userLogin } from '../../../redux/user-autorization/authOperation';
-import { useState } from 'react';
 import Notiflix from 'notiflix';
 
 const initialValues = {
@@ -38,6 +35,7 @@ const UserLogIn = () => {
   const handleLogin = async(values, {resetForm}) => {
     try {
       dispatch(userLogin(values))
+      resetForm()
     } catch (error) {
       Notiflix.Notify.failure('Incorrect password or email!');
     }
@@ -46,9 +44,6 @@ const UserLogIn = () => {
   return (
     <Container>
       <FormContainer >
-        <WrappIcon>
-          <CloseSvg />
-        </WrappIcon>
         <div>
           <TitleForm>Log In</TitleForm>
           <DescForm>
