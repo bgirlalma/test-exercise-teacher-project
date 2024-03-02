@@ -13,6 +13,7 @@ const TeacherPage = lazy(() => import('../pages/TeachersPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage'));
 
 function App() {
+  
   return (
     <div>
       <Routes>
