@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { Form, Field } from "formik";
+import { Form, Field } from 'formik';
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   padding-top: 20px;
@@ -40,8 +41,18 @@ export const FormContainer = styled.div`
   }
 `;
 
+export const WrappIcon = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px 20px 0 0;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+`;
+
 export const TitleForm = styled.h2`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 40px;
   line-height: 120%;
@@ -52,7 +63,7 @@ export const TitleForm = styled.h2`
 
 export const DescForm = styled.p`
   width: 438px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 137%;

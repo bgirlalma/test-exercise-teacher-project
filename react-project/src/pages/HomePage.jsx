@@ -7,12 +7,13 @@ const Container = styled.div`
   padding: 20px 64px 32px 64px;
 `;
 const HomePage = () => {
+
     return (
-        <Container>
-            <Home />
-            <StatisticBlock/>
-       </Container>
-    )
+      <Container>
+        <Home />
+        <StatisticBlock />
+      </Container>
+    );
 }
 
 export default HomePage;

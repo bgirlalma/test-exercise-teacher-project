@@ -38,6 +38,15 @@ export const FormContainer = styled.div`
     }
   }
 `;
+export const WrappIcon = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px 20px 0 0;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+`;
 
 export const TitleForm = styled.h2`
   font-family: "Roboto", sans-serif;

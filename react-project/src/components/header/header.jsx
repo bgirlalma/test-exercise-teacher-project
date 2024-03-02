@@ -15,12 +15,13 @@ const HeaderContainer = styled.header`
   padding-bottom: 20px;
 `;
 const Header = () => {
+
   const { isLoggIn } = useAuth();
   return (
     <HeaderContainer>
       <Logo />
       <Navigation />
-      {!isLoggIn ? <UserNavButton /> : <UserMenu />}
+      {!isLoggIn ? <UserNavButton/> : <UserMenu />}
     </HeaderContainer>
   );
 };

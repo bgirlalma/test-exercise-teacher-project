@@ -2,12 +2,14 @@ import { Formik, ErrorMessage } from 'formik';
 import {
   Container,
   FormContainer,
+  WrappIcon,
   TitleForm,
   DescForm,
   WrappForm,
   StyledField,
   ButtonModal,
 } from './login.styled';
+import { CloseSvg } from '../../image/close';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { userLogin } from '../../../redux/user-autorization/authOperation';
@@ -29,21 +31,24 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const UserLogIn = () => {
-  const dispatch = useDispatch()
+const UserLogIn = ({closeModal}) => {
+  const dispatch = useDispatch();
 
-  const handleLogin = async(values, {resetForm}) => {
+  const handleLogin = async (values, { resetForm }) => {
     try {
-      dispatch(userLogin(values))
-      resetForm()
+      dispatch(userLogin(values));
+      resetForm();
     } catch (error) {
       Notiflix.Notify.failure('Incorrect password or email!');
     }
-  }
+  };
 
   return (
     <Container>
-      <FormContainer >
+      <FormContainer>
+          <WrappIcon onClick={closeModal}>
+            <CloseSvg />
+          </WrappIcon>
         <div>
           <TitleForm>Log In</TitleForm>
           <DescForm>
@@ -57,6 +62,7 @@ const UserLogIn = () => {
           validationSchema={SignupSchema}
           onSubmit={handleLogin}
         >
+          
           <WrappForm>
             <StyledField
               name="email"

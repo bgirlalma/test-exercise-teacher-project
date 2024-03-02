@@ -1,14 +1,16 @@
-import { Route, Routes } from "react-router-dom";
-import Layout from "./Layout";
-import { lazy } from "react";
-import RestrictedRoute from "./RestrictedRoute";
-import { PrivateRouter } from "./PrivateRouter";
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout';
+import { lazy } from 'react';
+import RestrictedRoute from './RestrictedRoute';
+import { PrivateRouter } from './PrivateRouter';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const UserLogIn = lazy(() => import('./modal/login/login'));
-const UserRegistration = lazy(() => import("./modal/registration/registration"))
+const UserRegistration = lazy(
+  () => import('./modal/registration/registration')
+);
 const TeacherPage = lazy(() => import('../pages/TeachersPage'));
-const FavoritePage = lazy(() => import("../pages/FavoritePage"))
+const FavoritePage = lazy(() => import('../pages/FavoritePage'));
 
 function App() {
   return (
@@ -21,7 +23,7 @@ function App() {
             element={
               <RestrictedRoute redirectTo="/teachers" component={UserLogIn} />
             }
-          ></Route>
+          />
           <Route
             path="register"
             element={
@@ -30,7 +32,8 @@ function App() {
                 component={UserRegistration}
               />
             }
-          ></Route>
+          />
+
           <Route
             path="teachers"
             element={
@@ -38,7 +41,12 @@ function App() {
             }
           ></Route>
 
-          <Route path="/favorite" element={<PrivateRouter redirectTo="/login" component={FavoritePage}/> }></Route>
+          <Route
+            path="favorite"
+            element={
+              <PrivateRouter redirectTo="/login" component={FavoritePage} />
+            }
+          ></Route>
         </Route>
       </Routes>
     </div>

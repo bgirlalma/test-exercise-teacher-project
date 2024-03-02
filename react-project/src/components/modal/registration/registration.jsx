@@ -2,6 +2,7 @@ import { Formik, ErrorMessage } from 'formik';
 import {
   Container,
   FormContainer,
+  WrappIcon,
   TitleForm,
   DescForm,
   WrappForm,
@@ -11,6 +12,7 @@ import {
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../redux/user-autorization/authOperation';
+import { CloseSvg } from '../../image/close';
 
 // початковий state форми
 const initialValues = {
@@ -32,62 +34,65 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const UserRegistration = () => {
+const UserRegistration = ({closeModal}) => {
 const dispatch = useDispatch()
   return (
     <Container>
-        <FormContainer>
-          <div>
-            <TitleForm>Registration</TitleForm>
-            <DescForm>
-              Thank you for your interest in our platform! In order to register,
-              we need some information. Please provide us with the following
-              information
-            </DescForm>
-          </div>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={SignupSchema}
-            onSubmit={(values, { resetForm }) => {
-              dispatch(registerUser(values));
-              resetForm();
-            }}
-          >
-            <WrappForm>
-              <StyledField
-                name="name"
-                id="name"
-                type="text"
-                autoComplete="off"
-                required
-                placeholder="Name"
-              />
-              <ErrorMessage name="name" component="div" />
+      <FormContainer>
+        <WrappIcon onClick={closeModal}>
+          <CloseSvg />
+        </WrappIcon>
+        <div>
+          <TitleForm>Registration</TitleForm>
+          <DescForm>
+            Thank you for your interest in our platform! In order to register,
+            we need some information. Please provide us with the following
+            information
+          </DescForm>
+        </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={SignupSchema}
+          onSubmit={(values, { resetForm }) => {
+            dispatch(registerUser(values));
+            resetForm();
+          }}
+        >
+          <WrappForm>
+            <StyledField
+              name="name"
+              id="name"
+              type="text"
+              autoComplete="off"
+              required
+              placeholder="Name"
+            />
+            <ErrorMessage name="name" component="div" />
 
-              <StyledField
-                name="email"
-                id="email"
-                type="text"
-                autoComplete="off"
-                required
-                placeholder="Email"
-              />
-              <ErrorMessage name="email" component="div" />
+            <StyledField
+              name="email"
+              id="email"
+              type="text"
+              autoComplete="off"
+              required
+              placeholder="Email"
+            />
+            <ErrorMessage name="email" component="div" />
 
-              <StyledField
-                name="password"
-                id="password"
-                type="password"
-                autoComplete="off"
-                required
-                placeholder="Password"
-              />
-              <ErrorMessage name="password" component="div" />
+            <StyledField
+              name="password"
+              id="password"
+              type="password"
+              autoComplete="off"
+              required
+              placeholder="Password"
+            />
+            <ErrorMessage name="password" component="div" />
 
-              <ButtonModal type="submit">Sign Up</ButtonModal>
-            </WrappForm>
-          </Formik>
-        </FormContainer>
+            <ButtonModal type="submit">Sign Up</ButtonModal>
+          </WrappForm>
+        </Formik>
+      </FormContainer>
     </Container>
   );
 };

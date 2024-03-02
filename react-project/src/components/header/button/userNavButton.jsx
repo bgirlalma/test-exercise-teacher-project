@@ -1,19 +1,46 @@
+import { useState } from "react";
 import { LoginSvg } from "../../image/login";
-import { WrappNavButton, LogInButton, TitleButton, RegistrationNavButton, TitleRegButton  } from "./userNavButton.styled";
+import { WrappNavButton, LogInButton, TitleButton, RegistrationNavButton, TitleRegButton } from "./userNavButton.styled";
+import UserLogIn from '../../modal/login/login';
+import UserRegistration from '../../modal/login/login';
 
 const UserNavButton = () => {
+ const [loginModalOpen, setLoginModalOpen] = useState(false);
+ const [registrationModalOpen, setRegistrationModalOpen] = useState(false);
+
+ const openLoginModal = () => {
+   setLoginModalOpen(true);
+ };
+
+
+ const openRegistrationModal = () => {
+   setRegistrationModalOpen(true);
+  };
+
+     const closeLoginModal = () => {
+       setLoginModalOpen(false);
+     };
+
+     const closeRegistrationModal = () => {
+       setRegistrationModalOpen(false);
+     };
+
 
   return (
     <WrappNavButton>
-  
-        <LogInButton>
-          <LoginSvg />
-          <TitleButton to="/login" >Log in</TitleButton>
-        </LogInButton>
-   
-      <RegistrationNavButton>
-        <TitleRegButton to="/register">Registration</TitleRegButton>
+      <LogInButton onClick={openLoginModal}>
+        <LoginSvg />
+        <TitleButton>Log in</TitleButton>
+      </LogInButton>
+
+      <RegistrationNavButton onClick={openRegistrationModal}>
+        <TitleRegButton>Registration</TitleRegButton>
       </RegistrationNavButton>
+
+      {loginModalOpen && <UserLogIn closeModal={closeLoginModal} />}
+      {registrationModalOpen && (
+        <UserRegistration closeModal={closeRegistrationModal} />
+      )}
     </WrappNavButton>
   );
 };
