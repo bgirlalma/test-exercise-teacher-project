@@ -163,7 +163,7 @@ export const StyledList = styled.li`
   font-weight: 500;
   font-size: 18px;
   line-height: 111%;
-  color: #121417;
+  color: rgba(18, 20, 23, 0.2);
 
   transition:
     width 2s,
@@ -176,6 +176,6 @@ export const StyledList = styled.li`
 
   &:hover,
   &:focus {
-    color: #9fbaae;
+    color: #121417;
   }
 `;

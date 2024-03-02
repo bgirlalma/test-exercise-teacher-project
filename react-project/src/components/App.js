@@ -3,6 +3,7 @@ import Layout from './Layout';
 import { lazy } from 'react';
 import RestrictedRoute from './RestrictedRoute';
 import { PrivateRouter } from './PrivateRouter';
+import ReadMore from './teachers/teacher-items/readmore/redmore';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const UserLogIn = lazy(() => import('./modal/login/login'));
@@ -40,7 +41,9 @@ function App() {
             element={
               <PrivateRouter redirectTo="/login" component={TeacherPage} />
             }
-          ></Route>
+          >
+            <Route path='readmore' element={<ReadMore/> }></Route>
+          </Route>
 
           <Route
             path="favorite"

@@ -14,11 +14,13 @@
     "rating": 4.5,
     "reviews": [
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Alice",
         "reviewer_rating": 5,
         "comment": "John is an excellent teacher! I highly recommend him."
       },
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Bob",
         "reviewer_rating": 4,
         "comment": "John is very knowledgeable and patient. I enjoyed his classes."
@@ -46,12 +48,13 @@
     ],
     "rating": 4.8,
     "reviews": [
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Eve",
         "reviewer_rating": 5,
         "comment": "Jane is an amazing teacher! She is patient and supportive."
       },
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Frank",
         "reviewer_rating": 4,
         "comment": "Jane's lessons were very helpful. I made good progress."
@@ -74,12 +77,13 @@
     "levels": ["A1 Beginner", "A2 Elementary", "B1 Intermediate"],
     "rating": 4.2,
     "reviews": [
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Grace",
         "reviewer_rating": 4,
         "comment": "David explains things clearly and is knowledgeable in the subject."
       },
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Henry",
         "reviewer_rating": 3,
         "comment": "David's teaching style didn't suit me, but he is still a good teacher."
@@ -102,12 +106,13 @@
     "levels": ["A1 Beginner", "A2 Elementary", "B1 Intermediate"],
     "rating": 4.6,
     "reviews": [
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Emily",
         "reviewer_rating": 4,
         "comment": "Sarah is a patient and helpful teacher. I enjoyed her lessons."
       },
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Alex",
         "reviewer_rating": 5,
         "comment": "Sarah's teaching style is engaging and effective. Highly recommended."
@@ -135,12 +140,13 @@
     ],
     "rating": 4.4,
     "reviews": [
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Sophia",
         "reviewer_rating": 5,
         "comment": "Michael is an excellent teacher. He makes learning Spanish fun and engaging."
       },
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Oliver",
         "reviewer_rating": 4,
         "comment": "I have made great progress with Michael's lessons. Highly recommended."
@@ -164,11 +170,12 @@
     "rating": 4.9,
     "reviews": [
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Liam",
         "reviewer_rating": 5,
         "comment": "Emma is an amazing teacher. Her lessons are interactive and engaging."
       },
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Mia",
         "reviewer_rating": 4,
         "comment": "I have learned a lot from Emma's lessons. Highly recommended for French and Italian."
@@ -192,6 +199,7 @@
     "rating": 4.7,
     "reviews": [
       {
+      
         "reviewer_name": "Sophie",
         "reviewer_rating": 5,
         "comment": "Alexander is a patient and knowledgeable teacher. I have learned a lot from his lessons."
@@ -225,11 +233,12 @@
     "rating": 4.9,
     "reviews": [
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Ethan",
         "reviewer_rating": 5,
         "comment": "Sophia is an excellent teacher. Her lessons are fun and interactive."
       },
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Ava",
         "reviewer_rating": 4,
         "comment": "I have improved my Spanish and French skills significantly with Sophia's lessons."
@@ -252,12 +261,13 @@
     "levels": ["A1 Beginner", "A2 Elementary", "B1 Intermediate"],
     "rating": 4.6,
     "reviews": [
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Olivia",
         "reviewer_rating": 4,
         "comment": "Max is a dedicated and knowledgeable teacher. I enjoyed his German lessons."
       },
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Noah",
         "reviewer_rating": 5,
         "comment": "I highly recommend Max for German lessons. He explains concepts clearly and provides useful tips."
@@ -281,11 +291,12 @@
     "rating": 4.8,
     "reviews": [
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Liam",
         "reviewer_rating": 5,
         "comment": "Isabella is a fantastic teacher. Her lessons are engaging and effective."
       },
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Mia",
         "reviewer_rating": 4,
         "comment": "I have made significant progress with Isabella's lessons. Highly recommended."
@@ -313,12 +324,13 @@
     ],
     "rating": 4.7,
     "reviews": [
-      {
+      {"avatar": "https://www.flaticon.com/ru/free-icon/woman_6997557?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=14&origin=tag&related_id=6997557",
         "reviewer_name": "Sophie",
         "reviewer_rating": 5,
         "comment": "Daniel is an excellent teacher. His lessons are well-structured and enjoyable."
       },
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Benjamin",
         "reviewer_rating": 4,
         "comment": "I have learned a lot from Daniel's lessons. Highly recommended for French learners."
@@ -342,6 +354,7 @@
     "rating": 4.9,
     "reviews": [
       {
+        "avatar": "https://www.flaticon.com/ru/free-icon/businessman_6998058?term=%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80&page=1&position=2&origin=tag&related_id=6998058",
         "reviewer_name": "Jacob",
         "reviewer_rating": 5,
         "comment": "Olivia is an amazing Italian teacher. Her lessons are engaging and informative."
