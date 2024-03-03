@@ -88,7 +88,7 @@ export const ReadMore = styled.button`
   transition: 0.5s ease-in-out;
 
   &:hover {
-    color: #1e5bb8;
+    color: #9fbaae;
   }
 `;
 
@@ -109,27 +109,6 @@ export const ButtonElement = styled.button`
     margin-right: 0;
   }
 `;
-
-export const ButtonWrapp = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-export const LoadMoreButton = styled.button`
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: #121417;
-
-  width: 183px;
-  height: 60px;
-  border: none;
-  border-radius: 12px;
-  background-color: #9fbaae;
-  margin-top: 64px;
-`;
-
 
 export const StyledList = styled.ul`
 display: flex;
@@ -163,6 +142,6 @@ export const ListLevels = styled.li`
 
   &:hover,
   &:focus {
-    background-color: #f4c550;
+    background-color: #9fbaae;
   }
 `;

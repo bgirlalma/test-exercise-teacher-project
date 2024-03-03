@@ -10,21 +10,22 @@ import {
   MainTitle,
   StyledDescInfo,
   ReadMore,
-  ButtonWrapp,
-  LoadMoreButton,
   StyledList,
   ListLevels,
 } from './teachet.styled';
-import teacherData from '../../../teacher-json/teacher.json'
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { teachersList } from "../../../redux/teacher/teacherOperation";
 import { StatusOnlineSvg } from "../../image/Ellipse";
 import MenuReadMore from "./readmore/redmore";
+import LoadMoreButton from "./loadmore/loadmore";
+import teacherData from '../../../teacher-json/teacher.json';
 
 
 const TeachersItems = () => {
   const despatch = useDispatch();
+ const itemsPerPage = 4
+  const [visibleItems, setVisibleItems] = useState(itemsPerPage);
 
   // state кнопки read more
   const [showReadMore, setShowReadMore] = useState({});
@@ -42,11 +43,16 @@ const TeachersItems = () => {
     }));
   };
 
+  const loadmore = () => {
+    setVisibleItems(prevVisibItems => prevVisibItems + itemsPerPage);
+  }
+
+
   return (
     <WrappContainer>
       <ul>
         {teacherData &&
-          teacherData.map((teacher, id) => (
+          teacherData.slice(0, visibleItems).map((teacher, id) => (
             <TeacherList key={id}>
               <PositionImage>
                 <Image src={teacher.avatar_url} alt={teacher.name} />
@@ -96,9 +102,9 @@ const TeachersItems = () => {
           ))}
       </ul>
 
-      <ButtonWrapp>
-        <LoadMoreButton type="button">Load more</LoadMoreButton>
-      </ButtonWrapp>
+      {visibleItems < teacherData.length && (
+        <LoadMoreButton loadmore={loadmore} />
+      )}
     </WrappContainer>
   );
 };
