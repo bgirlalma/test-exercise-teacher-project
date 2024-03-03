@@ -1,4 +1,4 @@
-import { StarSvg } from "../../../image/Star";
+import BookTrialLessonModal from "../../../modal/book-trial-lesson/book-trial-lesson";
 import {
   ContainerReadMore,
   ReadMoreDesc,
@@ -12,6 +12,7 @@ import {
   PositionButton,
   BookTrialLessonButton,
 } from './readmore.styled';
+import { StarSvg } from '../../../image/Star';
 const MenuReadMore = ({ teacher }) => {
 
   // перевиряємо чи дійсно існує reviews інформація про вчителя. Якщо ні - повертаємо null
@@ -38,7 +39,7 @@ const MenuReadMore = ({ teacher }) => {
 
         <div>
           <StyledList>
-            {teacher.levels.map((level, index) => (
+            { Array.isArray(teacher.levels) && teacher.levels.map((level, index) => (
               <ListLevels key={index} level={level}>
                 {level}
               </ListLevels>
@@ -52,6 +53,8 @@ const MenuReadMore = ({ teacher }) => {
           Book trial lesson
         </BookTrialLessonButton>
       </PositionButton>
+
+      <BookTrialLessonModal teacher={teacher}/>
     </ContainerReadMore>
   );
 };

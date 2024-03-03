@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const WrappContainer = styled.div``;
+export const WrappContainer = styled.div`
+position: relative
+`;
 
 export const PositionImage = styled.div`
 position: relative;

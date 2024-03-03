@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { StarSvg } from '../../../image/Star';
 import { BookSvg } from '../../../image/book-open';
 import { HeartSvg } from '../../../image/heart';

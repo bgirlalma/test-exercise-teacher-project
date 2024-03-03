@@ -3,7 +3,6 @@ import Layout from './Layout';
 import { lazy } from 'react';
 import RestrictedRoute from './RestrictedRoute';
 import { PrivateRouter } from './PrivateRouter';
-import ReadMore from './teachers/teacher-items/readmore/redmore';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const UserLogIn = lazy(() => import('./modal/login/login'));
@@ -12,6 +11,12 @@ const UserRegistration = lazy(
 );
 const TeacherPage = lazy(() => import('../pages/TeachersPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage'));
+const ReadMore = lazy(
+  () => import('./teachers/teacher-items/readmore/redmore')
+);
+const BookTrialLessonModal = lazy(
+  () => import('./modal/book-trial-lesson/book-trial-lesson')
+);
 
 function App() {
   
@@ -42,7 +47,9 @@ function App() {
               <PrivateRouter redirectTo="/login" component={TeacherPage} />
             }
           >
-            <Route path='readmore' element={<ReadMore/> }></Route>
+            <Route path='readmore' element={ReadMore}>
+              <Route path='book-trial-lesson' element={BookTrialLessonModal}></Route>
+            </Route>
           </Route>
 
           <Route
