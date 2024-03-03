@@ -88,7 +88,7 @@ export const BookTrialLessonButton = styled.button`
   border-radius: 12px;
   padding: 16px 48px;
   height: 60px;
-  background-color: #f4c550;
+  background-color: #9fbaae;
   border: none;
   cursor: pointer;
 
@@ -101,6 +101,6 @@ export const BookTrialLessonButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #FBE9BA;
+    background-color: #cbded3;
   }
 `;
