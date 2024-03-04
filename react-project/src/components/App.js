@@ -44,7 +44,7 @@ function App() {
           <Route
             path="teachers"
             element={
-              <PrivateRouter redirectTo="/login" component={TeacherPage} />
+              <TeacherPage />
             }
           >
             <Route path='readmore' element={ReadMore}>

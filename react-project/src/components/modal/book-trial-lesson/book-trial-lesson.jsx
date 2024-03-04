@@ -7,21 +7,28 @@ import {
   BookTrialLessonTitle,
   BookTrialLessonDesc,
   TeachetInfo,
+  TeacherInfoList,
+  ModalImage,
+  TeacherListDesc,
+  TeacherListTitle,
   TitleRadio,
 } from './book-trial-lesson.styled';
 import { RadioButton } from './radiobutton/radio-button';
 import { FormBookTrialLesson } from './form/form-book-lesson';
+import { useDispatch } from 'react-redux';
 
 const initialValues = {
   fullname: '',
   email: '',
   phonenumber: '',
 };
-const BookTrialLessonModal = () => {
+const BookTrialLessonModal = ({ closeModal, teacher}) => {
+  const dispatch = useDispatch();
+
   return (
     <Container>
       <BookTrialLessonContainer>
-        <IconCloseWrappContainer>
+        <IconCloseWrappContainer onClick={closeModal}>
           <CloseSvg />
         </IconCloseWrappContainer>
         <BookTrialLessonTitle>Book trial lesson</BookTrialLessonTitle>
@@ -32,15 +39,31 @@ const BookTrialLessonModal = () => {
 
         <div>
           <TeachetInfo>
-            <li>
-              <img src="" alt="" />
-              <p>Your teacher</p>
-              <h2></h2>
-            </li>
+            <TeacherInfoList>
+              <ModalImage
+                src={teacher.avatar_url}
+                alt={teacher.name}
+                width="44"
+                height="44"
+              />
+              <div>
+                <TeacherListDesc>Your teacher</TeacherListDesc>
+                <TeacherListTitle>{`${teacher.name} ${teacher.surname}`}</TeacherListTitle>
+              </div>
+            </TeacherInfoList>
           </TeachetInfo>
         </div>
 
-        <Formik initialValues={initialValues}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={(values, { resetForm }) => {
+            // Обработка отправки формы...
+            console.log('Form submitted:', values);
+
+            // Сброс формы после успешной отправки
+            resetForm();
+          }}
+        >
           {({ values }) => (
             <Form>
               <TitleRadio>

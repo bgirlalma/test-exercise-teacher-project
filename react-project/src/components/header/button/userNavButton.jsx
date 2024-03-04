@@ -10,11 +10,13 @@ const UserNavButton = () => {
 
  const openLoginModal = () => {
    setLoginModalOpen(true);
- };
+   setRegistrationModalOpen(false);
+  };
 
 
  const openRegistrationModal = () => {
    setRegistrationModalOpen(true);
+   setLoginModalOpen(false);
   };
 
      const closeLoginModal = () => {
@@ -37,12 +39,14 @@ const UserNavButton = () => {
         <TitleRegButton>Registration</TitleRegButton>
       </RegistrationNavButton>
 
-      {loginModalOpen && <UserLogIn closeModal={closeLoginModal} />}
+      {loginModalOpen && (<UserLogIn closeModal={closeLoginModal} />)}
       {registrationModalOpen && (
         <UserRegistration closeModal={closeRegistrationModal} />
       )}
     </WrappNavButton>
   );
+
+  
 };
 
 export default UserNavButton;

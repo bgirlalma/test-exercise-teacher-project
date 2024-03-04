@@ -4,6 +4,7 @@ import { Form, Field } from "formik";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  z-index: 1;
 `;
 export const FormContainer = styled.div`
   position: fixed;

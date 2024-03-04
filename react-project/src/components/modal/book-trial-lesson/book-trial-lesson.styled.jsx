@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 position: absolute;
-top: 0;
+z-index: 2;
 `;
 
 
@@ -16,13 +16,15 @@ export const BookTrialLessonContainer = styled.div`
   box-sizing: border-box;
 `;
 
-export const IconCloseWrappContainer = styled.div`
+export const IconCloseWrappContainer = styled.button`
 position: absolute;
 top: 0;
 right: 0;
 margin: 20px 20px 12px 0;
 
 cursor: pointer;
+background-color: inherit;
+border: none;
 `;
 
 export const BookTrialLessonTitle = styled.h2`
@@ -46,6 +48,33 @@ export const BookTrialLessonDesc = styled.p`
 
 export const TeachetInfo = styled.ul`
   margin: 0 0 40px 0;
+`;
+
+export const TeacherInfoList = styled.li`
+  display: flex;
+  align-items: center;
+`;
+
+export const ModalImage = styled.img`
+border-radius: 50%;
+margin-right: 14px;
+`;
+
+export const TeacherListDesc = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #8a8a89;
+  margin-bottom: 4px;
+`;
+
+export const TeacherListTitle = styled.h2`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121417;
 `;
 
 export const TitleRadio = styled.h2`

@@ -13,7 +13,19 @@ import {
   BookTrialLessonButton,
 } from './readmore.styled';
 import { StarSvg } from '../../../image/Star';
+import { useState } from "react";
+
 const MenuReadMore = ({ teacher }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+
+  const openModal = () => {
+    setIsOpenModal(true)
+  }
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  }
 
   // перевиряємо чи дійсно існує reviews інформація про вчителя. Якщо ні - повертаємо null
   if (!teacher || !teacher.reviews) {
@@ -39,22 +51,25 @@ const MenuReadMore = ({ teacher }) => {
 
         <div>
           <StyledList>
-            { Array.isArray(teacher.levels) && teacher.levels.map((level, index) => (
-              <ListLevels key={index} level={level}>
-                {level}
-              </ListLevels>
-            ))}
+            {Array.isArray(teacher.levels) &&
+              teacher.levels.map((level, index) => (
+                <ListLevels key={index} level={level}>
+                  {level}
+                </ListLevels>
+              ))}
           </StyledList>
         </div>
       </ul>
 
       <PositionButton>
-        <BookTrialLessonButton type="button">
+        <BookTrialLessonButton type="button" onClick={openModal}>
           Book trial lesson
         </BookTrialLessonButton>
       </PositionButton>
 
-      <BookTrialLessonModal teacher={teacher}/>
+      {isOpenModal && (
+        <BookTrialLessonModal teacher={teacher} closeModal={closeModal} />
+      )}
     </ContainerReadMore>
   );
 };
