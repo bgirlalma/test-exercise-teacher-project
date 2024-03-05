@@ -31,24 +31,15 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const UserLogIn = ({closeModal}) => {
+const UserLogIn = ({ closeModalLogin }) => {
   const dispatch = useDispatch();
-
-  const handleLogin = async (values, { resetForm }) => {
-    try {
-      dispatch(userLogin(values));
-      resetForm();
-    } catch (error) {
-      Notiflix.Notify.failure('Incorrect password or email!');
-    }
-  };
 
   return (
     <Container>
       <FormContainer>
-          <WrappIcon onClick={closeModal}>
-            <CloseSvg />
-          </WrappIcon>
+        <WrappIcon onClick={closeModalLogin}>
+          <CloseSvg />
+        </WrappIcon>
         <div>
           <TitleForm>Log In</TitleForm>
           <DescForm>
@@ -60,9 +51,15 @@ const UserLogIn = ({closeModal}) => {
         <Formik
           initialValues={initialValues}
           validationSchema={SignupSchema}
-          onSubmit={handleLogin}
+          onSubmit={(values, { resetForm }) => {
+            try {
+              dispatch(userLogin(values));
+              resetForm();
+            } catch (error) {
+              Notiflix.Notify.failure('Incorrect password or email!');
+            }
+          }}
         >
-          
           <WrappForm>
             <StyledField
               name="email"

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LoginSvg } from "../../image/login";
 import { WrappNavButton, LogInButton, TitleButton, RegistrationNavButton, TitleRegButton } from "./userNavButton.styled";
 import UserLogIn from '../../modal/login/login';
-import UserRegistration from '../../modal/login/login';
+import UserRegistration from '../../modal/registration/registration';
 
 const UserNavButton = () => {
  const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -39,9 +39,9 @@ const UserNavButton = () => {
         <TitleRegButton>Registration</TitleRegButton>
       </RegistrationNavButton>
 
-      {loginModalOpen && (<UserLogIn closeModal={closeLoginModal} />)}
+      {loginModalOpen && (<UserLogIn closeModalLogin={closeLoginModal} />)}
       {registrationModalOpen && (
-        <UserRegistration closeModal={closeRegistrationModal} />
+        <UserRegistration closeModalRegister={closeRegistrationModal} />
       )}
     </WrappNavButton>
   );

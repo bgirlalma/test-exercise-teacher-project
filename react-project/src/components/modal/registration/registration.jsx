@@ -13,6 +13,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../redux/user-autorization/authOperation';
 import { CloseSvg } from '../../image/close';
+import Notiflix from 'notiflix';
 
 // початковий state форми
 const initialValues = {
@@ -34,12 +35,12 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const UserRegistration = ({closeModal}) => {
-const dispatch = useDispatch()
+const UserRegistration = ({ closeModalRegister }) => {
+  const dispatch = useDispatch();
   return (
     <Container>
       <FormContainer>
-        <WrappIcon onClick={closeModal}>
+        <WrappIcon onClick={closeModalRegister}>
           <CloseSvg />
         </WrappIcon>
         <div>
@@ -54,8 +55,12 @@ const dispatch = useDispatch()
           initialValues={initialValues}
           validationSchema={SignupSchema}
           onSubmit={(values, { resetForm }) => {
-            dispatch(registerUser(values));
-            resetForm();
+           try {
+             dispatch(registerUser(values));
+             resetForm();
+           } catch (error) {
+             Notiflix.Notify.failure('Incorrect password or email!');
+           }
           }}
         >
           <WrappForm>
