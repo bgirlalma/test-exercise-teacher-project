@@ -6,13 +6,16 @@ export const teachersList = createAsyncThunk(
   'teacherAuth/teacherList',
   async (_, thunkAPI) => {
  try {
-   // Создание ссылки на коллекцию 'teachers' в вашей базе данных
-   const teachersRef = ref(database, 'teacher-project');
+   // Создание ссылки на коллекцию 'teachers' 
+   const teachersRef = ref(database, 'teachers');
+   console.log(teachersRef)
 
    // Получение данных из коллекции 'teachers'
    const snapshot = await get(teachersRef);
-     console.log(teachersRef);
-     console.log(snapshot);
+   console.log("Snapshot", snapshot)
+    console.log('SnapshotKey', snapshot.key);
+    console.log('SnapshotVal', snapshot.val()); 
+
    if (snapshot.exists()) {
      // Преобразование данных в массив объектов
      const teacherList = [];
@@ -22,10 +25,10 @@ export const teachersList = createAsyncThunk(
          ...childSnapshot.val(),
        });
      });
-console.log(teacherList)
+    
      return teacherList;
    } else {
-     console.log('Данные не найдены');
+     console.log('Дані не знайдено!');
      return [];
    }
  } catch (error) {

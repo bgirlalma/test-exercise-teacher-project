@@ -13,28 +13,34 @@ import {
   StyledList,
   ListLevels,
 } from './teachet.styled';
-import { useDispatch } from "react-redux";
+import {uid} from 'uid'
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { teachersList } from "../../../redux/teacher/teacherOperation";
 import { StatusOnlineSvg } from "../../image/Ellipse";
 import MenuReadMore from "./readmore/redmore";
 import LoadMoreButton from "./loadmore/loadmore";
-import teacherData from '../../../teacher-json/teacher.json';
 
 
 const TeachersItems = () => {
-  const despatch = useDispatch();
- const itemsPerPage = 4
-  const [visibleItems, setVisibleItems] = useState(itemsPerPage);
-
+  const dispatch = useDispatch();
+  const teachers = useSelector(state => state.teachers.teachers);
   // state кнопки read more
   const [showReadMore, setShowReadMore] = useState({});
 
   useEffect(() => {
-    despatch(teachersList());
-  })
+    dispatch(teachersList());
+  }, [dispatch]);
 
-// функция для зміни state read more
+  // відображення карток на сторінці
+  const itemsPerPage = 4;
+  const [visibleItems, setVisibleItems] = useState(itemsPerPage);
+
+    const loadmore = () => {
+      setVisibleItems(prevVisibItems => prevVisibItems + itemsPerPage);
+    };
+
+  // функция для зміни state read more
   const toggleReadMore = id => {
     // відновлює state за допомогою коллбєку, видаляє або додає елемент з ключем [id]. Якщо елемент вжє иснує-видаляємо.
     setShowReadMore(prevState => ({
@@ -43,17 +49,13 @@ const TeachersItems = () => {
     }));
   };
 
-  const loadmore = () => {
-    setVisibleItems(prevVisibItems => prevVisibItems + itemsPerPage);
-  }
-
 
   return (
     <WrappContainer>
       <ul>
-        {teacherData &&
-          teacherData.slice(0, visibleItems).map((teacher, id) => (
-            <TeacherList key={id}>
+        {teachers &&
+          teachers.slice(0, visibleItems).map(teacher => (
+            <TeacherList key={uid()}>
               <PositionImage>
                 <Image src={teacher.avatar_url} alt={teacher.name} />
                 <SvgContainer>
@@ -77,16 +79,16 @@ const TeachersItems = () => {
                 </StyledDescInfo>
 
                 {/* {якщо showReadMore = true, показуємо компонент меню} */}
-                {showReadMore[id] ? (
+                {showReadMore[teacher.id] ? (
                   <MenuReadMore teacher={teacher} />
                 ) : (
-                  <ReadMore onClick={() => toggleReadMore(id)}>
+                  <ReadMore onClick={() => toggleReadMore(teacher.id)}>
                     Read more
                   </ReadMore>
                 )}
 
                 {/* {якщо showReadMore[id] неактивне, то відображаємо кнопки, якщо активно ні} */}
-                {!showReadMore[id] && (
+                {!showReadMore[teacher.id] && (
                   <div>
                     <StyledList>
                       {teacher.levels.map((level, index) => (
@@ -102,9 +104,7 @@ const TeachersItems = () => {
           ))}
       </ul>
 
-      {visibleItems < teacherData.length && (
-        <LoadMoreButton loadmore={loadmore} />
-      )}
+      {visibleItems < teachers.length && <LoadMoreButton loadmore={loadmore} />}
     </WrappContainer>
   );
 };
