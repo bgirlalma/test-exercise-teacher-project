@@ -28,6 +28,7 @@ const TeachersItems = () => {
   // state кнопки read more
   const [showReadMore, setShowReadMore] = useState({});
 
+
   useEffect(() => {
     dispatch(teachersList());
   }, [dispatch]);
@@ -36,9 +37,9 @@ const TeachersItems = () => {
   const itemsPerPage = 4;
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
 
-    const loadmore = () => {
-      setVisibleItems(prevVisibItems => prevVisibItems + itemsPerPage);
-    };
+  const loadmore = () => {
+    setVisibleItems(prevVisibItems => prevVisibItems + itemsPerPage);
+  };
 
   // функция для зміни state read more
   const toggleReadMore = id => {
@@ -48,7 +49,6 @@ const TeachersItems = () => {
       [id]: !prevState[id],
     }));
   };
-
 
   return (
     <WrappContainer>

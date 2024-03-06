@@ -36,3 +36,11 @@ export const teachersList = createAsyncThunk(
  }
   }
 );
+
+export const addTeacherFavorites = createAsyncThunk('teacherAuth/addTeacherFavorites', async (addFavorites, thunkAPI) => {
+  try {
+    
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
