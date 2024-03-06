@@ -16,7 +16,7 @@ import {
 import {uid} from 'uid'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { teachersList } from "../../../redux/teacher/teacherOperation";
+import {  teachersList } from "../../../redux/teacher/teacherOperation";
 import { StatusOnlineSvg } from "../../image/Ellipse";
 import MenuReadMore from "./readmore/redmore";
 import LoadMoreButton from "./loadmore/loadmore";
@@ -25,6 +25,7 @@ import LoadMoreButton from "./loadmore/loadmore";
 const TeachersItems = () => {
   const dispatch = useDispatch();
   const teachers = useSelector(state => state.teachers.teachers);
+ 
   // state кнопки read more
   const [showReadMore, setShowReadMore] = useState({});
 
@@ -49,6 +50,7 @@ const TeachersItems = () => {
       [id]: !prevState[id],
     }));
   };
+
 
   return (
     <WrappContainer>

@@ -7,11 +7,23 @@ import {
   IconContainer,
   Title,
   HeartContainer,
+  HeartYellowContainer,
 } from './info-teacher.styled';
 import { HeartYellowSvg } from '../../../image/heartYellow';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTeacherFavorites } from '../../../../redux/teacher/teacherOperation';
+import { useState } from 'react';
+ 
 
 const InfoTeacher = ({ teacher }) => {
+  const dispatch = useDispatch()
+  const favorites = useSelector(state => state.favorites);
+ const isFavorite = useSelector(state => state.favorites[teacher.id]);
 
+   const addToFavoritesHandler = id => {
+     dispatch(addTeacherFavorites(id));
+    
+  };
 
   return (
     <Container>
@@ -31,9 +43,15 @@ const InfoTeacher = ({ teacher }) => {
         <Title>Price / 1 hour: {teacher.price_per_hour}</Title>
       </Wrapp>
 
-      <HeartContainer>
-      <HeartYellowSvg /> : <HeartSvg />
-      </HeartContainer>
+      {isFavorite ? (
+        <HeartContainer>
+          <HeartSvg onClick={() => addToFavoritesHandler(teacher.id)} />
+        </HeartContainer>
+      ) : (
+        <HeartYellowContainer>
+          <HeartYellowSvg />
+        </HeartYellowContainer>
+      )}
     </Container>
   );
 };

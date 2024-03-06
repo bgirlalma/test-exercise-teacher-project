@@ -41,4 +41,12 @@ export const HeartContainer = styled.button`
   margin-left: 64px;
   border: none;
   background-color: inherit;
+  cursor: pointer;
+`;
+
+export const HeartYellowContainer = styled.button`
+  margin-left: 64px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
 `;

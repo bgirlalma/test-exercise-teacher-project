@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { database } from "../../config/firebase";
-import { ref, get } from 'firebase/database';
+import { ref, get, push, set } from 'firebase/database';
 
 export const teachersList = createAsyncThunk(
   'teacherAuth/teacherList',
@@ -37,9 +37,17 @@ export const teachersList = createAsyncThunk(
   }
 );
 
-export const addTeacherFavorites = createAsyncThunk('teacherAuth/addTeacherFavorites', async (addFavorites, thunkAPI) => {
+export const addTeacherFavorites = createAsyncThunk('teacherAuth/addTeacherFavorites', async (teacherId, thunkAPI) => {
   try {
-    
+    const teachetsFavoritesRef = ref(database, 'favorites') //отримуємо линку бази даних
+    const newFavoritesRef = push(teachetsFavoritesRef)  //генеруємо новий ключ для додавання в улюблене
+
+    //додаємо інформацію про вчителя в улюблене
+    await set(newFavoritesRef, {
+      teacherId: teacherId
+    })
+     
+    return teacherId;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
