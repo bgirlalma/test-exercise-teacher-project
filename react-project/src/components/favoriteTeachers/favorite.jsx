@@ -1,52 +1,31 @@
-import { useState } from "react";
-import InfoTeacher from '../teachers/teacher-items/info/info-teacher'
-import {Image, FlexContainer, DescLanguage, MainTitle, StyledDescInfo, ReadMoreContainer, ReadMore} from '../teachers/teacher-items/teachet.styled'
+import { useSelector } from "react-redux";
+import InfoTeacher from "../teachers/teacher-items/info/info-teacher";
+import TeachersItems from "../teachers/teacher-items/teacher-items";
 
-const FavoriteTeachers = () => {
-    const [favoriteTeachers, setFavoriteTeachers] = useState([]);
-    
-    const deleteTeacher = (teacherId) => {
-        setFavoriteTeachers(
-          favoriteTeachers.filter(teacher => teacher.id === teacherId)
-        );
-    }
-    return (
-      <div>
-        <ul>
-          {favoriteTeachers.map(teacher => (
-            <li key={teacher.id}>
-              <Image src={teacher.avatar_url} alt={teacher.name} />
-                  <div>
-                <FlexContainer>
-                  <DescLanguage>Languages</DescLanguage>
-                  <InfoTeacher teacher={teacher} />
-                </FlexContainer>
-                <MainTitle>
-                  {teacher.name} {teacher.surname}
-                </MainTitle>
-                <StyledDescInfo>Speaks: {teacher.languages}</StyledDescInfo>
-                <StyledDescInfo>
-                  Lesson Info: {teacher.lesson_info}
-                </StyledDescInfo>
-                <StyledDescInfo>
-                  Conditions: {teacher.conditions}
-                </StyledDescInfo>
+const FavoriteTeachers = ({ teachers }) => {
+    const favorites = useSelector(state => {
+      console.log('Favorites from Redux state:', state.favorites);
+      return state.favorites.favorites;
+    });
+  
+   console.log('Teachers from props:', teachers);
 
-                <ReadMoreContainer>
-                  <ReadMore to="">Read more</ReadMore>
-                </ReadMoreContainer>
-
-                <div>
-                  <ul>
-                    <li>{teacher.levels}</li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-}
+ return (
+   <div>
+     {favorites.length > 0 ? (
+       <ul>
+         {favorites.map(teacherId => (
+           <li key={teacherId}>
+             <TeachersItems teacherId={ teacherId} />
+      
+           </li>
+         ))}
+       </ul>
+     ) : (
+       <div>No favorite teachers yet!</div>
+     )}
+   </div>
+ );
+};
 
 export default FavoriteTeachers;

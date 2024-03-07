@@ -9,11 +9,15 @@ const favoriteSlice = createSlice({
     name: 'favorites',
     initialState: initialState,
     reducer: {
-        addFavorites(state, {payload}){
-            state.favorites.push(payload)
+        addFavorites(state, action) {
+            const { teacherId } = action.payload;
+              if (!state.favorites.includes(teacherId)) {
+                state.favorites.push(teacherId);
+              }
         },
-        removeFavorites(state, {payload }) {
-             state.favorites = state.favorites.filter((e) => e !== payload)
+        removeFavorites(state, action) {
+            const { teacherId } = action.payload;
+            state.favorites = state.favorites.filter(id => id !== teacherId);
          }
     }
 })

@@ -10,19 +10,31 @@ import {
   HeartYellowContainer,
 } from './info-teacher.styled';
 import { HeartYellowSvg } from '../../../image/heartYellow';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTeacherFavorites } from '../../../../redux/teacher/teacherOperation';
+import { useDispatch} from 'react-redux';
+import {addTeacherFavorites, removeTeacherFavorites} from '../../../../redux/teacher/teacherOperation'
 import { useState } from 'react';
  
 
 const InfoTeacher = ({ teacher }) => {
   const dispatch = useDispatch()
-  const favorites = useSelector(state => state.favorites);
- const isFavorite = useSelector(state => state.favorites[teacher.id]);
+  const [isFavorite, setIsFavorite] = useState(false);
+  
 
-   const addToFavoritesHandler = id => {
-     dispatch(addTeacherFavorites(id));
-    
+  const addToFavoritesHandler = () => {
+    console.log('Trying to add teacher to favorites:', teacher.id);
+    if (!isFavorite) {
+      console.log('Adding teacher to favorites:', teacher.id);
+      dispatch(addTeacherFavorites(teacher.id));
+      setIsFavorite(true)
+    } else {
+      console.log('Teacher is already in favorites:', teacher.id);
+    }
+  };
+
+  const removeFromFavoritesHandler = () => {
+    console.log('Trying to remove teacher from favorites:', teacher.id);
+    dispatch(removeTeacherFavorites(teacher.id));
+    setIsFavorite(false)
   };
 
   return (
@@ -44,13 +56,13 @@ const InfoTeacher = ({ teacher }) => {
       </Wrapp>
 
       {isFavorite ? (
-        <HeartContainer>
-          <HeartSvg onClick={() => addToFavoritesHandler(teacher.id)} />
-        </HeartContainer>
-      ) : (
-        <HeartYellowContainer>
+        <HeartYellowContainer onClick={removeFromFavoritesHandler}>
           <HeartYellowSvg />
         </HeartYellowContainer>
+      ) : (
+        <HeartContainer onClick={addToFavoritesHandler}>
+          <HeartSvg />
+        </HeartContainer>
       )}
     </Container>
   );

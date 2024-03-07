@@ -1,6 +1,10 @@
 {
   "rules": {
     ".read": true,
-    ".write": true
+    ".write": true,
+    "favorites": {
+      ".indexOn": "teacherId"
+    }
   }
+    
 }

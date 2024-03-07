@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { teachersList } from './teacherOperation';
+import { addTeacherFavorites, removeTeacherFavorites, teachersList } from './teacherOperation';
 
 const initialState = {
   teachers: [],
@@ -22,7 +22,30 @@ const teacherSlice = createSlice({
       .addCase(teachersList.rejected, (state, action) => {
         state.isLoader = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(addTeacherFavorites.pending, state => {
+        state.isLoader = true;
+      })
+      .addCase(addTeacherFavorites.fulfilled, (state, action) => {
+        state.isLoader = false;
+        const { teacherId } = action.payload;
+        if (!state.teachers.some(teacher => teacher.id === teacherId)) {
+          state.teachers.push({ id: teacherId });
+        }
+      })
+      .addCase(addTeacherFavorites.rejected, (state, action) => {
+      state.error = action.payload
+      })
+      .addCase(removeTeacherFavorites.pending, state => {
+        state.isLoader = true;
+      })
+      .addCase(removeTeacherFavorites.fulfilled, (state, action) => {
+        const { teacherId } = action.payload;
+        state.teachers = state.teachers.filter(teacher => teacher.id !== teacherId)
+      })
+      .addCase(removeTeacherFavorites.rejected, (state, action) => {
+      state.error = action.payload
+    })
   },
 });
 

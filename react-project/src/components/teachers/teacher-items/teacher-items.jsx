@@ -13,7 +13,6 @@ import {
   StyledList,
   ListLevels,
 } from './teachet.styled';
-import {uid} from 'uid'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import {  teachersList } from "../../../redux/teacher/teacherOperation";
@@ -56,8 +55,8 @@ const TeachersItems = () => {
     <WrappContainer>
       <ul>
         {teachers &&
-          teachers.slice(0, visibleItems).map(teacher => (
-            <TeacherList key={uid()}>
+          teachers.slice(0, visibleItems).map((teacher, id) => (
+            <TeacherList key={id}>
               <PositionImage>
                 <Image src={teacher.avatar_url} alt={teacher.name} />
                 <SvgContainer>
