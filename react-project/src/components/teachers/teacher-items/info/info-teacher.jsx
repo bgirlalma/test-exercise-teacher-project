@@ -43,23 +43,6 @@ const InfoTeacher = ({ teacher }) => {
   }
   
 
-  // const addToFavoritesHandler = () => {
-  //   console.log('Trying to add teacher to favorites:', teacher.id);
-  //   if (!isFavorite) {
-  //     console.log('Adding teacher to favorites:', teacher.id);
-  //     dispatch(addTeacherFavorites(teacher.id));
-  //     setIsFavorite(true)
-  //   } else {
-  //     console.log('Teacher is already in favorites:', teacher.id);
-  //   }
-  // };
-
-  // const removeFromFavoritesHandler = () => {
-  //   console.log('Trying to remove teacher from favorites:', teacher.id);
-  //   dispatch(removeTeacherFavorites(teacher.id));
-  //   setIsFavorite(false)
-  // };
-
   return (
     <Container>
       <Wrapp>
@@ -84,9 +67,5 @@ const InfoTeacher = ({ teacher }) => {
     </Container>
   );
 };
-
-  // <HeartContainer>
-  //   <HeartSvg />
-  // </HeartContainer>;
 
 export default InfoTeacher;
