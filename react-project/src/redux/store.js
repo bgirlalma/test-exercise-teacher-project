@@ -13,6 +13,7 @@ import {
 } from 'redux-persist';
 import { teacherReducer } from './teacher/teacherSlice';
 import { favoriteTeachers } from './teacher/favoriteSlice';
+import { filterReducer } from './teacher/filterSlice';
 
 const persistConfig = {
   key: 'root',
@@ -24,6 +25,7 @@ const rootReduser = combineReducers({
   userAuth: authReduser,
   teachers: teacherReducer,
   favorites: favoriteTeachers,
+  filter: filterReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReduser);
