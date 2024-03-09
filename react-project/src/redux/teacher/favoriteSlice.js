@@ -8,7 +8,7 @@ const initialState = {
 const favoriteSlice = createSlice({
     name: 'favorites',
     initialState: initialState,
-    reducer: {
+    reducers: {
         addFavorites(state, action) {
             const { teacherId } = action.payload;
               if (!state.favorites.includes(teacherId)) {
@@ -23,4 +23,4 @@ const favoriteSlice = createSlice({
 })
 
 export const { addFavorites, removeFavorites } = favoriteSlice.actions;
-export const favoriteTeachers = favoriteSlice.reducer;
+export const favoriteReducer = favoriteSlice.reducer;

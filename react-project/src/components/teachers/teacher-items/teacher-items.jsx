@@ -23,11 +23,11 @@ import LoadMoreButton from "./loadmore/loadmore";
 
 const TeachersItems = () => {
   const dispatch = useDispatch();
-  const teachers = useSelector(state => state.teachers.teachers);
- 
+// const teachers = useSelector(state => state.teachers.teachers);
+// const filters = useSelector(state => state.filters);
+
   // state кнопки read more
   const [showReadMore, setShowReadMore] = useState({});
-
 
   useEffect(() => {
     dispatch(teachersList());
@@ -50,12 +50,34 @@ const TeachersItems = () => {
     }));
   };
 
+const filteredTeachers = useSelector(state => {
+  const filters = state.filter.filters;
+  // console.log("Filter", filters);
+
+  const teachers = state.teachers.teachers;
+  // console.log("Teachers", teachers)
+
+  return teachers.filter(teacher => {
+    if (filters.languages && teacher.languages !== filters.languages)
+      return false;
+    if (filters.levels && teacher.levels !== filters.levels) return false;
+    if (
+      filters.price &&
+      teacher.price_per_hour !== filters.price
+    )
+      return false;
+    return true;
+  });
+});
+  // console.log("FilterTeacher", filteredTeachers)
+  
+  
 
   return (
     <WrappContainer>
       <ul>
-        {teachers &&
-          teachers.slice(0, visibleItems).map((teacher, id) => (
+        {filteredTeachers &&
+          filteredTeachers.slice(0, visibleItems).map((teacher, id) => (
             <TeacherList key={id}>
               <PositionImage>
                 <Image src={teacher.avatar_url} alt={teacher.name} />
@@ -105,7 +127,9 @@ const TeachersItems = () => {
           ))}
       </ul>
 
-      {visibleItems < teachers.length && <LoadMoreButton loadmore={loadmore} />}
+      {visibleItems < filteredTeachers.length && (
+        <LoadMoreButton loadmore={loadmore} />
+      )}
     </WrappContainer>
   );
 };

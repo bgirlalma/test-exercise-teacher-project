@@ -21,7 +21,6 @@ import { setFilter } from '../../../redux/teacher/filterSlice';
 const FilterTeacher = () => {
   //work with filter "languages, level, price"
   const dispatch = useDispatch();
-  const languages = useSelector(state => state.languages)
   
 
   //work with select
@@ -30,13 +29,12 @@ const FilterTeacher = () => {
   const [isOpenSelectPrice, setIsOpenSelectPrice] = useState(false);
 
   //dispatch filter
-  const handleLanguges = () => {
+  const handleLanguges = languages => {
     dispatch(setFilter({ languages: languages }));
   };
-  console.log("Languages", languages)
 
-  const handleLevel = level => {
-    dispatch(setFilter({ level: level }));
+  const handleLevel = levels => {
+    dispatch(setFilter({ levels: levels }));
   };
 
   const handlePrice = price => {

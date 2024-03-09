@@ -10,37 +10,29 @@ import {
   HeartYellowContainer,
 } from './info-teacher.styled';
 import { HeartYellowSvg } from '../../../image/heartYellow';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import {addTeacherFavorites, removeTeacherFavorites} from '../../../../redux/teacher/teacherOperation'
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
  
 
 const InfoTeacher = ({ teacher }) => {
   const dispatch = useDispatch()
-  const [isFavorite, setIsFavorite] = useState(false);
+ const favorites = useSelector(state => state.favorites.favorites);
+ const [isFavorite, setIsFavorite] = useState(favorites.includes(teacher.id));
 
-  // перевірка state
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites'))
-    if (favorites && favorites.includes(teacher.id)) {
-      setIsFavorite(true)
-    }
-  }, [teacher.id])
+    setIsFavorite(favorites.includes(teacher.id));
+  }, [favorites, teacher.id]);
 
   const updateFavorites = () => {
     if (!isFavorite) {
       console.log('Adding teacher to favorites:', teacher.id);
       dispatch(addTeacherFavorites(teacher.id));
-      setIsFavorite(true);
-      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      localStorage.setItem('favorites', JSON.stringify([...favorites, teacher.id]))
     } else {
-       dispatch(removeTeacherFavorites(teacher.id));
-      setIsFavorite(false);
-      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      localStorage.setItem('favorites', JSON.stringify(favorites.filter(id => id !== teacher.id)))
+      dispatch(removeTeacherFavorites(teacher.id));
     }
-  }
+    setIsFavorite(prevIsFavorite => !prevIsFavorite); // Обновляем состояние по колбэку
+  };
   
 
   return (

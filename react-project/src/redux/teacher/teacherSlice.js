@@ -4,7 +4,6 @@ import { addTeacherFavorites, removeTeacherFavorites, teachersList } from './tea
 const initialState = {
   teachers: [],
   isLoader: false,
-  filter: "",
 };
 
 const teacherSlice = createSlice({
