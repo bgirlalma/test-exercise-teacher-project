@@ -36,17 +36,17 @@ export const teachersList = createAsyncThunk(
 
 export const addTeacherFavorites = createAsyncThunk(
   'teachers/addTeacherFavorites',
-  async (teacherId, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
       const teachetsFavoritesRef = ref(database, 'favorites'); //отримуємо линку бази даних
       const newFavoritesRef = push(teachetsFavoritesRef); //генеруємо новий ключ для додавання в улюблене
 
       //додаємо інформацію про вчителя в улюблене
       await set(newFavoritesRef, {
-        teacherId: teacherId,
+        teacherId: id,
       });
 
-      return teacherId;
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -55,20 +55,20 @@ export const addTeacherFavorites = createAsyncThunk(
 
 
 export const removeTeacherFavorites = createAsyncThunk(
-  'teachers/removeTeacherFavorites', async (teacherId, thunkAPI) => {
-    console.log('Trying to remove teacher from favorites:', teacherId);
+  'teachers/removeTeacherFavorites', async (id, thunkAPI) => {
+    console.log('Trying to remove teacher from favorites:', id);
     try {
       const teachersRef = ref(database, 'favorites');
       const favoriteQuery = query(
         teachersRef,
         orderByChild('teacherId'),
-        equalTo(teacherId)
+        equalTo(id)
       ); //створюємо запит до вузлу favorites. За допомогою orderByChild вказуємо що данні повинні бути відсортованні по полю teacherId. За допомогою equalTo гарантуємо, що teacherId === teacherId
       const snapshot = await get(favoriteQuery);
 
       snapshot.forEach(childSnapshot => remove(childSnapshot.ref));
-      console.log('Teacher removed from favorites:', teacherId);
-      return teacherId;
+      console.log('Teacher removed from favorites:', id);
+      return id;
     } catch (error) {
        console.error('Error removing teacher from favorites:', error);
        return thunkAPI.rejectWithValue(error.message);

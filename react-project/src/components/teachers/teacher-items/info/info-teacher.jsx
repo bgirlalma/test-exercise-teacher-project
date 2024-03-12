@@ -10,8 +10,8 @@ import {
   HeartYellowContainer,
 } from './info-teacher.styled';
 import { HeartYellowSvg } from '../../../image/heartYellow';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch,} from 'react-redux';
 import {
   addTeacherFavorites,
   removeTeacherFavorites,
@@ -19,37 +19,38 @@ import {
 
 const InfoTeacher = ({ teacher }) => {
   const dispatch = useDispatch();
-  const [favoritesTeachers, setFavoritesTeachers] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false);
+  // Получаем начальное значение isFavorite из локального хранилища
+  const initialIsFavorite =
+    JSON.parse(localStorage.getItem('favorites'))?.includes(teacher.id) ||
+    false;
+  const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
 
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites'));
-    if (favorites && favorites.includes(teacher.id)) {
-      setIsFavorite(true);
-    }
-    setFavoritesTeachers(favorites || []);
-  }, [teacher.id]);
-
-    const handleFavorite = () => {
-      if (!isFavorite) {
-        dispatch(addTeacherFavorites(teacher.id));
-        setIsFavorite(true);
-   
-        setFavoritesTeachers(prevFavorites => [...prevFavorites, teacher.id]);
-        localStorage.setItem('favorites', JSON.stringify([...favoritesTeachers, teacher.id]));
-      } else {
-        dispatch(removeTeacherFavorites(teacher.id));
-        setIsFavorite(false);
-
-        setFavoritesTeachers(prevFavorites =>
-          prevFavorites.filter(id => id !== teacher.id)
+  const handleFavorite = () => {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      if (!favorites) {
+        console.log(
+          'Favorites data not loaded yet. Waiting for data to be loaded...'
         );
-        localStorage.setItem(
-          'favorites',
-          JSON.stringify(favoritesTeachers.filter(id => id !== teacher.id))
-        );
+        return;
       }
-    };
+    if (!isFavorite) {
+      console.log('Adding teacher to favorites:', teacher.id);
+      dispatch(addTeacherFavorites(teacher.id));
+      setIsFavorite(true);
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+       const updatedFavorites = [...favorites, teacher.id];
+       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+       console.log('Favorites after addition:', updatedFavorites);
+    } else {
+      console.log('Removing teacher from favorites:', teacher.id);
+      dispatch(removeTeacherFavorites(teacher.id));
+      setIsFavorite(false);
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const updatedFavorites = favorites.filter(id => id !== teacher.id);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    console.log('Favorites after removal:', updatedFavorites);
+    }
+  };
 
   return (
     <Container>
