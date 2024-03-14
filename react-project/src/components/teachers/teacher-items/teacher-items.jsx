@@ -69,7 +69,7 @@ const filteredTeachers = useSelector(state => {
     return true;
   });
 });
-  // console.log("FilterTeacher", filteredTeachers)
+
   
   
 
