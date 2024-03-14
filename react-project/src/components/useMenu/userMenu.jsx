@@ -13,7 +13,7 @@ const UserMenu = () => {
   return (
     <LogoutContainer>
       <TitleLogout>
-        Welcome <SpanLogout>{userName}</SpanLogout>!
+      {userName}
       </TitleLogout>
       <ButtonLogout type="button" onClick={handleLogout}>
         log out

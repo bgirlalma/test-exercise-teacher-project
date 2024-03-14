@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const WrappContainer = styled.div`
 position: relative
+ min-height: 100vh;
+  min-width: 100vh;
 `;
 
 export const PositionImage = styled.div`

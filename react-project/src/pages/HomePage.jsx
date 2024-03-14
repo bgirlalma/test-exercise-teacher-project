@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Container = styled.div`
   max-width: 1440px;
   padding: 20px 64px 32px 64px;
+  min-height: 100vh;
 `;
 const HomePage = () => {
 

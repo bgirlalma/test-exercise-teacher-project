@@ -3,13 +3,12 @@ import { useSelector } from "react-redux";
 import { StatusOnlineSvg } from "../image/Ellipse";
 import InfoTeacher from "../teachers/teacher-items/info/info-teacher";
 import MenuReadMore from "../teachers/teacher-items/readmore/redmore";
-import { ReadMore } from "./favorite.styled";
-import LoadMoreButton from "../teachers/teacher-items/loadmore/loadmore";
+import { WrappContainer,FavoriteTitle, TeacherList, PositionImage, SvgContainer, Image, FlexContainer, DescLanguage, MainTitle, StyledDescInfo, ReadMore, StyledList, ListLevels } from "./favorite.styled";
 
 const FavoriteTeachers = () => {
   const [favoriteTeachers, setFavoriteTeachers] = useState([]);
-  const allTeachers = useSelector(state => state.teachers.teachers);
-  // state кнопки read more
+  const teachers = useSelector(state => state.teachers.teachers);
+  //state кнопки read more
   const [showReadMore, setShowReadMore] = useState({});
 
   // функция для зміни state read more
@@ -34,72 +33,73 @@ const FavoriteTeachers = () => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     // Находим объекты учителей по их идентификаторам
-    const favoriteTeacherObjects = allTeachers.filter(teacher =>
+    const favoriteTeacherObjects = teachers.filter(teacher =>
       favorites.includes(teacher.id)
     );
 
     // Устанавливаем данные в состояние
     setFavoriteTeachers(favoriteTeacherObjects);
-  }, [allTeachers]);
+  }, [teachers]);
 
   return (
-    <div>
-      <h2>Favorite Page</h2>
+    <WrappContainer>
+      <FavoriteTitle>Favorite Page</FavoriteTitle>
       <ul>
-        {favoriteTeachers.map(teacher => (
-          <li key={teacher.id}>
-            <div>
-              <img src={teacher.avatar_url} alt={teacher.name} />
+        {favoriteTeachers &&
+          favoriteTeachers.slice(0, visibleItems).map(teacher => (
+            <TeacherList key={teacher.id}>
+              <PositionImage>
+                <Image src={teacher.avatar_url} alt={teacher.name} />
+
+                <SvgContainer>
+                  <StatusOnlineSvg />
+                </SvgContainer>
+              </PositionImage>
 
               <div>
-                <StatusOnlineSvg />
+                <FlexContainer>
+                  <DescLanguage>Languages</DescLanguage>
+                  <InfoTeacher teacher={teacher}/>
+                </FlexContainer>
+
+                <MainTitle>
+                  {teacher.name} {teacher.surname}
+                </MainTitle>
+
+                <StyledDescInfo>Speaks: {teacher.languages}</StyledDescInfo>
+                <StyledDescInfo>
+                  Lesson Info: {teacher.lesson_info}
+                </StyledDescInfo>
+                <StyledDescInfo>
+                  Conditions: {teacher.conditions}
+                </StyledDescInfo>
+
+                {/* {якщо showReadMore = true, показуємо компонент меню} */}
+                {showReadMore[teacher.id] ? (
+                  <MenuReadMore teacher={teacher} />
+                ) : (
+                  <ReadMore onClick={() => toggleReadMore(teacher.id)}>
+                    Read more
+                  </ReadMore>
+                )}
+
+                {/* {якщо showReadMore[id] неактивне, то відображаємо кнопки, якщо активно ні} */}
+                {!showReadMore[teacher.id] && (
+                  <div>
+                    <StyledList>
+                      {teacher.levels.map((level, index) => (
+                        <ListLevels key={index} level={level}>
+                          {level}
+                        </ListLevels>
+                      ))}
+                    </StyledList>
+                  </div>
+                )}
               </div>
-            </div>
-
-            <div>
-              <div>
-                <p>Languages</p>
-                <InfoTeacher />
-              </div>
-
-              <div>
-                {teacher.name} {teacher.surname}
-              </div>
-
-              <p>Speaks: {teacher.languages}</p>
-              <p>Lesson Info: {teacher.lesson_info}</p>
-              <p>Conditions: {teacher.conditions}</p>
-
-              {/* {якщо showReadMore = true, показуємо компонент меню} */}
-              {showReadMore[teacher.id] ? (
-                <MenuReadMore teacher={teacher} />
-              ) : (
-                <ReadMore onClick={() => toggleReadMore(teacher.id)}>
-                  Read more
-                </ReadMore>
-              )}
-
-              {/* {якщо showReadMore[id] неактивне, то відображаємо кнопки, якщо активно ні} */}
-              {!showReadMore[teacher.id] && (
-                <div>
-                  <ul>
-                    {teacher.levels.map((level, index) => (
-                      <li key={index} level={level}>
-                        {level}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </li>
-        ))}
+            </TeacherList>
+          ))}
       </ul>
-
-      {visibleItems < allTeachers.length && (
-        <LoadMoreButton loadmore={loadmore} />
-      )}
-    </div>
+    </WrappContainer>
   );
 };
 export default FavoriteTeachers;
