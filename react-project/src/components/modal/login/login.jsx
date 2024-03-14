@@ -14,7 +14,6 @@ import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { userLogin } from '../../../redux/user-autorization/authOperation';
 import Notiflix from 'notiflix';
-import { useEffect, useState } from 'react';
 
 const initialValues = {
   email: '',
@@ -56,6 +55,7 @@ const UserLogIn = ({ closeModalLogin }) => {
             try {
               dispatch(userLogin(values));
               resetForm();
+               Notiflix.Notify.success('Welcome!');
             } catch (error) {
               Notiflix.Notify.failure('Incorrect password or email!');
             }

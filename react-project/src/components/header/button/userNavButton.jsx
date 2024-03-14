@@ -9,12 +9,14 @@ const UserNavButton = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [registrationModalOpen, setRegistrationModalOpen] = useState(false);
 
+
   //створюємо лінку для елементу на який будемо встановлювати фокус після закриття модальних вікон
   const focusRef = useRef(null);
 
   //коли відкрити модальне вікно логінізаціїї, то вікно реєстрації зачинено
   const openLoginModal = () => {
     setLoginModalOpen(true);
+
     setRegistrationModalOpen(false);
   };
 

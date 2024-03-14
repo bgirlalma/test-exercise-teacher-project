@@ -58,6 +58,7 @@ const UserRegistration = ({ closeModalRegister }) => {
             try {
               dispatch(registerUser(values));
               resetForm();
+              Notiflix.Notify.success('You have successfully registered');
             } catch (error) {
               Notiflix.Notify.failure('Incorrect password or email!');
             }
