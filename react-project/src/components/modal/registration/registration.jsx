@@ -55,12 +55,12 @@ const UserRegistration = ({ closeModalRegister }) => {
           initialValues={initialValues}
           validationSchema={SignupSchema}
           onSubmit={(values, { resetForm }) => {
-           try {
-             dispatch(registerUser(values));
-             resetForm();
-           } catch (error) {
-             Notiflix.Notify.failure('Incorrect password or email!');
-           }
+            try {
+              dispatch(registerUser(values));
+              resetForm();
+            } catch (error) {
+              Notiflix.Notify.failure('Incorrect password or email!');
+            }
           }}
         >
           <WrappForm>
