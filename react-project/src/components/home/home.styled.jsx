@@ -1,16 +1,24 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WrappHomeContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 568px;
   gap: 24px;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 320px) {
+    display: flex;
+  }
 `;
 
 export const TitleContainer = styled.div`
   background-color: #f8f8f8;
   border-radius: 30px;
   padding: 98px 64px 0 64px;
+
+  @media screen and (min-width: 320px) {
+    padding: 60px 40px 20px 60px;
+  }
 `;
 
 export const HomeTitle = styled.h1`
@@ -18,6 +26,11 @@ export const HomeTitle = styled.h1`
   font-size: 48px;
   color: #121417;
   margin-bottom: 32px;
+
+  @media screen and (min-width: 320px) {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const TitleSpan = styled.span`
@@ -27,6 +40,10 @@ export const TitleSpan = styled.span`
   font-size: 48px;
   background-color: #9fbaae;
   border-radius: 5px;
+
+  @media screen and (min-width: 320px) {
+    font-size: 28px;
+  }
 `;
 
 export const HomeDesc = styled.p`
@@ -36,6 +53,11 @@ export const HomeDesc = styled.p`
   font-size: 16px;
   color: #121417;
   margin-bottom: 64px;
+
+  @media screen and (min-width: 320px) {
+    width: 320px;
+    margin-bottom: 44px;
+  }
 `;
 
 export const HomeButton = styled.button`
@@ -50,4 +72,15 @@ export const HomeButton = styled.button`
   color: #121417;
   padding: 0;
   margin: 0;
+
+  @media screen and (min-width: 320px) {
+    width: 150px;
+    font-size: 16px;
+  }
+`;
+
+export const StyledImageGirl = styled.img`
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
 `;
