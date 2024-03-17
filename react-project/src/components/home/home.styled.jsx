@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WrappHomeContainer = styled.div`
   margin-bottom: 24px;
@@ -10,19 +10,15 @@ export const WrappHomeContainer = styled.div`
     gap: 20px;
   }
 
-  @media screen and (max-width: 1200px) {
-  }
-
-  @media screen and (max-width: 1000px) {
-
-  }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 350px) {
+  display: flex;
   }
 `;
 
 export const TitleContainer = styled.div`
   background-color: #f8f8f8;
   border-radius: 30px;
+
   padding: 98px 64px 98px 64px;
 
   @media screen and (max-width: 1300px) {
@@ -103,6 +99,7 @@ export const TitleSpan = styled.span`
   }
 
   @media screen and (max-width: 350px) {
+
     font-size: 28px;
   }
 `;
@@ -135,6 +132,7 @@ export const HomeDesc = styled.p`
 
   @media screen and (max-width: 350px) {
     font-size: 16px;
+
   }
 `;
 
@@ -178,3 +176,4 @@ export const StyledPhoto = styled.img`
     display: none;
   }
 `;
+

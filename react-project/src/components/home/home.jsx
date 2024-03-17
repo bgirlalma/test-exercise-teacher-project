@@ -14,7 +14,8 @@ const Home = () => {
       <WrappHomeContainer>
         <TitleContainer>
           <HomeTitle>
-            Unlock your potential with the best <TitleSpan>language</TitleSpan> tutors
+            Unlock your potential with the best <TitleSpan>language</TitleSpan>{' '}
+            tutors
           </HomeTitle>
           <HomeDesc>
             Embark on an Exciting Language Journey with Expert Language Tutors:
