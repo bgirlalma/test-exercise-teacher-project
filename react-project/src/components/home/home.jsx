@@ -1,5 +1,13 @@
 import HomeImage from '../image/block.jpg';
-import { WrappHomeContainer, TitleContainer, HomeTitle, TitleSpan, HomeDesc, HomeButton } from './home.styled';
+import {
+  WrappHomeContainer,
+  TitleContainer,
+  HomeTitle,
+  TitleSpan,
+  HomeDesc,
+  HomeButton,
+  StyledPhoto,
+} from './home.styled';
 
 const Home = () => {
     return (
@@ -16,7 +24,7 @@ const Home = () => {
           <HomeButton type="submit">Get started</HomeButton>
         </TitleContainer>
 
-        <img src={HomeImage} alt="Girl and Computer" />
+        <StyledPhoto src={HomeImage} alt="Girl and Computer" />
       </WrappHomeContainer>
     );
 }

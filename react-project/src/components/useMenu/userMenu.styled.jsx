@@ -14,6 +14,11 @@ export const TitleLogout = styled.h2`
   line-height: 125%;
   color: #121417;
   margin-right: 40px;
+
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+    margin-right: 30px;
+  }
 `;
 
 
@@ -35,5 +40,9 @@ export const ButtonLogout = styled.button`
   &:hover {
     background-color: #1f8d9c;
     color: #dfeb09;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 14px;
   }
 `;

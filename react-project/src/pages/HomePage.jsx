@@ -6,6 +6,20 @@ const Container = styled.div`
   max-width: 1440px;
   padding: 20px 64px 32px 64px;
   min-height: 100vh;
+
+  @media screen and (max-width: 1300px) {
+    max-width: 1300px;
+    padding: 20px 40px 20px 40px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    max-width: 1200px;
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 768px;
+  }
 `;
 const HomePage = () => {
 

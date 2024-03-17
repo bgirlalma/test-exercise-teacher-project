@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 export const WrappNav = styled.ul`
   display: flex;
   align-items: center;
+
+ 
 `;
 
 export const TitleHomeNav = styled(NavLink)`
@@ -14,6 +16,10 @@ export const TitleHomeNav = styled(NavLink)`
 
   &:hover {
     color: #6699cc;
+  }
+
+  @media screen and (max-width: 676px) {
+    font-size: 14px;
   }
 `;
 
@@ -27,6 +33,15 @@ export const TitleTeacherNav = styled(NavLink)`
   &:hover {
     color: #6699cc;
   }
+
+  @media screen and (max-width: 900px) {
+    margin-left: 18px;
+  }
+
+  @media screen and (max-width: 676px) {
+    margin-left: 12px;
+      font-size: 14px;
+  }
 `;
 
 export const TitleFavoriteNav = styled(NavLink)`
@@ -39,5 +54,14 @@ export const TitleFavoriteNav = styled(NavLink)`
 
   &:hover {
     color: #6699cc;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-left: 18px;
+  }
+
+  @media screen and (max-width: 676px) {
+    margin-left: 12px;
+      font-size: 14px;
   }
 `;
