@@ -38,6 +38,32 @@ export const FormContainer = styled.div`
       top: 15%; /* конечная позиция на экране по вертикали */
     }
   }
+
+  @media screen and (max-width: 700px) {
+    max-width: 465px;
+    padding: 50px;
+  }
+
+  @media screen and (max-width: 600px) {
+    max-width: 365px;
+    padding: 50px;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: 300px;
+    padding: 80px 40px 60px 40px;
+  }
+
+  @media screen and (max-width: 400px) {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    box-shadow: none;
+    animation-name: unset;
+    z-index: 999;
+    padding: 20px;
+  }
 `;
 export const WrappIcon = styled.button`
   position: absolute;
@@ -47,31 +73,60 @@ export const WrappIcon = styled.button`
   border: none;
   background-color: inherit;
   cursor: pointer;
+
+  @media screen and (max-width: 400px) {
+    margin: 20px 40px 0 0;
+  }
 `;
 
 export const TitleForm = styled.h2`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 40px;
   line-height: 120%;
   letter-spacing: -0.02em;
   color: #121417;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-top: 60px;
+    padding: 0 0 0 20px;
+  }
 `;
 
 export const DescForm = styled.p`
   width: 438px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 137%;
   color: rgba(18, 20, 23, 0.8);
   margin-bottom: 40px;
+
+  @media screen and (max-width: 600px) {
+    width: 365px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 300px;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 0 0 0 20px;
+  }
 `;
 
 export const WrappForm = styled(Form)`
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 400px) {
+    padding: 20px;
+  }
 `;
 
 export const StyledField = styled(Field)`

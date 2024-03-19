@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const WrappNavButton = styled.div`
   display: flex;
   align-items: center;
-
+  margin-left: auto;
 `;
 
 export const LogInButton = styled.button`

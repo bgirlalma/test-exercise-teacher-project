@@ -1,11 +1,9 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const WrappNav = styled.ul`
   display: flex;
   align-items: center;
-
- 
 `;
 
 export const TitleHomeNav = styled(NavLink)`
@@ -40,7 +38,7 @@ export const TitleTeacherNav = styled(NavLink)`
 
   @media screen and (max-width: 676px) {
     margin-left: 12px;
-      font-size: 14px;
+    font-size: 14px;
   }
 `;
 
@@ -62,6 +60,6 @@ export const TitleFavoriteNav = styled(NavLink)`
 
   @media screen and (max-width: 676px) {
     margin-left: 12px;
-      font-size: 14px;
+    font-size: 14px;
   }
 `;

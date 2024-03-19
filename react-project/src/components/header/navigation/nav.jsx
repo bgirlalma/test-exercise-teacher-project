@@ -6,21 +6,23 @@ import {
   TitleFavoriteNav,
 } from './nav.styled';
 
-const Navigation = () => {
+const Navigation = ({ handleNavLinkClick }) => {
   const { isLoggIn } = useAuth();
 
   return (
     <nav>
       <WrappNav>
         <li>
-          <TitleHomeNav to="/">Home</TitleHomeNav>
+          <TitleHomeNav to="/" onClick={() => handleNavLinkClick('/')}>
+            Home
+          </TitleHomeNav>
         </li>
         <li>
-          <TitleTeacherNav to="/teachers">Teachers</TitleTeacherNav>
+          <TitleTeacherNav to="/teachers" onClick={() => handleNavLinkClick('/teachers')}>Teachers</TitleTeacherNav>
         </li>
         {isLoggIn && (
           <li>
-            <TitleFavoriteNav to="/favorite">Favorite</TitleFavoriteNav>
+            <TitleFavoriteNav to="/favorite" onClick={() => handleNavLinkClick('favorites')}>Favorite</TitleFavoriteNav>
           </li>
         )}
       </WrappNav>

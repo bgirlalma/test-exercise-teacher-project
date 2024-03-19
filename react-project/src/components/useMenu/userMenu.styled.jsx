@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 
 export const LogoutContainer = styled.div`
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 `;
 
 
