@@ -8,6 +8,18 @@ const WrappContainer = styled.div`
   margin-right: auto;
   min-height: 100vh;
   min-width: 100vh;
+
+  @media screen and (max-width: 1300px) {
+    padding: 96px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    padding: 96px 60px;
+  }
+
+  @media screen and (max-width: 970px) {
+    padding: 96px 40px;
+  }
 `;
 
 const TeacherPage = () => {

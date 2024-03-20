@@ -4,7 +4,10 @@ import { HeartSvg } from '../../../image/heart';
 import {
   Container,
   Wrapp,
+  LessonsWrapp,
   IconContainer,
+  RatingWrapp,
+  LessonsDoneWrapp,
   Title,
   HeartYellowContainer,
 } from './info-teacher.styled';
@@ -67,17 +70,23 @@ const InfoTeacher = ({ teacher }) => {
   return (
     <Container>
       <Wrapp>
-        <IconContainer>
-          <BookSvg />
-        </IconContainer>
-        <Title>Lessons online</Title>
+        <LessonsWrapp>
+          <IconContainer>
+            <BookSvg />
+          </IconContainer>
+          <Title>Lessons online</Title>
+        </LessonsWrapp>
 
-        <Title>Lessons done: {teacher.lessons_done}</Title>
+        <LessonsDoneWrapp>
+          <Title>Lessons done: {teacher.lessons_done}</Title>
+        </LessonsDoneWrapp>
 
-        <IconContainer>
-          <StarSvg />
-        </IconContainer>
-        <Title>Rating: {teacher.rating} </Title>
+        <RatingWrapp>
+          <IconContainer>
+            <StarSvg />
+          </IconContainer>
+          <Title>Rating: {teacher.rating} </Title>
+        </RatingWrapp>
 
         <Title>Price / 1 hour: {teacher.price_per_hour}</Title>
       </Wrapp>

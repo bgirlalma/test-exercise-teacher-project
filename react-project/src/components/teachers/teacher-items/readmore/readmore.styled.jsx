@@ -48,7 +48,10 @@ export const ReadMoreComment = styled.p`
 export const StyledList = styled.ul`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 32px;
+  column-gap: 8px;
+  gap: 10px;
 `;
 
 export const ListLevels = styled.li`
@@ -60,11 +63,6 @@ export const ListLevels = styled.li`
   border-radius: 35px;
   padding: 0 12px;
   height: 32px;
-  margin-right: 8px;
-
-  &:last-child {
-    margin-right: 0;
-  }
 
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -76,7 +74,7 @@ export const ListLevels = styled.li`
 
   &:hover,
   &:focus {
-    background-color: #f4c550;
+    background-color: #9fbaae;
   }
 `;
 

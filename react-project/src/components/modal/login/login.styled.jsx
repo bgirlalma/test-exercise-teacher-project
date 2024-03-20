@@ -128,7 +128,7 @@ export const WrappForm = styled(Form)`
   flex-direction: column;
 
   @media screen and (max-width: 400px) {
-padding: 20px;
+    padding: 20px;
   }
 `;
 

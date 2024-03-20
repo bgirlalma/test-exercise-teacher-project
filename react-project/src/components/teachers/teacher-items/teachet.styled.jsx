@@ -20,6 +20,16 @@ export const SvgContainer = styled.div`
   padding: 4px;
   background-color: #fff;
   border-radius: 100%;
+
+  @media screen and (max-width: 1100px) {
+    margin-top: 21px;
+    margin-right: 25px;
+  }
+
+  @media screen and (max-width: 970px) {
+    margin-top: 21px;
+    margin-right: 30px;
+  }
 `;
 
 export const TeacherList = styled.li`
@@ -34,6 +44,14 @@ export const TeacherList = styled.li`
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media screen and (max-width: 1100px) {
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 18px;
+  }
 `;
 
 export const Image = styled.img`
@@ -42,24 +60,47 @@ export const Image = styled.img`
   padding: 12px;
   border-radius: 50%;
   border: 3px solid #fbe9ba;
+
+  @media screen and (max-width: 1100px) {
+    width: 85px;
+    height: 85px;
+  }
+
+  @media screen and (max-width: 970px) {
+    width: 75px;
+    height: 75px;
+  }
 `;
 
 export const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1330px) {
+    flex-direction: column;
+
+    & > :first-child{
+      order: 2;
+    }
+  }
 `;
 
 export const DescLanguage = styled.p`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #8a8a89;
+
+  @media screen and (max-width: 1330px) {
+   margin-bottom: 15px;
+  }
 `;
 
 export const MainTitle = styled.h2`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 24px;
   color: #121417;
   margin-bottom: 32px;
+
 `;
 
 export const StyledDescInfo = styled.p`
@@ -67,13 +108,7 @@ export const StyledDescInfo = styled.p`
   font-size: 16px;
   color: #121417;
   margin-bottom: 8px;
-`;
 
-export const ReadMoreContainer = styled.button`
-  margin-top: 8px;
-  margin-bottom: 32px;
-  background-color: inherit;
-  border: none;
 `;
 
 export const ReadMore = styled.button`
@@ -82,6 +117,7 @@ export const ReadMore = styled.button`
   font-size: 16px;
   line-height: 150%;
   color: #121417;
+  padding: 0;
 
   text-decoration: underline;
   cursor: pointer;
@@ -96,28 +132,14 @@ export const ReadMore = styled.button`
   }
 `;
 
-export const ButtonElement = styled.button`
-  padding: 0 12px 0 12px;
-  height: 32px;
-  border-radius: 35px;
-  border: 1px solid #8a8a89;
-  background-color: inherit;
-  margin-right: 8px;
-
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: #121417;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
 
 export const StyledList = styled.ul`
-display: flex;
-align-items: center;
-margin-top: 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  column-gap: 8px;
+  gap: 10px;
 `;
 
 export const ListLevels = styled.li`
@@ -129,11 +151,6 @@ export const ListLevels = styled.li`
   border-radius: 35px;
   padding: 0 12px;
   height: 32px;
-  margin-right: 8px;
-
-  &:last-child {
-    margin-right: 0;
-  }
 
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -148,4 +165,5 @@ export const ListLevels = styled.li`
   &:focus {
     background-color: #9fbaae;
   }
+
 `;
