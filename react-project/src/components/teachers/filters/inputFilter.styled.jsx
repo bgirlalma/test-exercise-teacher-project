@@ -6,6 +6,22 @@ export const WrappFormContainer = styled.div`
   gap: 20px;
   margin-bottom: 32px;
   z-index: 1;
+
+  @media screen and (max-width: 670px) {
+    grid-template-columns: 200px 170px 110px;
+    gap: 10px;
+  }
+
+  @media screen and (max-width: 590px) {
+    grid-template-columns: 200px 170px;
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 470px) {
+    grid-template-columns: 200px;
+    gap: 20px;
+    margin-left: 20px;
+  }
 `;
 
 export const DropdownContainer = styled.div`
@@ -18,6 +34,10 @@ export const FormContainerLanguages = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media screen and (max-width: 670px) {
+    width: 200px;
+  }
 `;
 
 export const Label = styled.label`
@@ -63,6 +83,10 @@ export const FormContainerLevel = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media screen and (max-width: 670px) {
+    width: 170px;
+  }
 `;
 
 // attrs() додаємо атрибут до компоненту. readOnly: true інпут буде доступний для читання
@@ -97,6 +121,10 @@ export const FormContainerPrice = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media screen and (max-width: 670px) {
+    width: 110px;
+  }
 `;
 
 // attrs() додаємо атрибут до компоненту. readOnly: true інпут буде доступний для читання

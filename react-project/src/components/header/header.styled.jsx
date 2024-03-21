@@ -15,17 +15,26 @@ export const HeaderContainer = styled.header`
   }
 
   @media screen and (max-width: 768px) {
-    margin-left: 70px;
-    margin-right: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
   }
 
   @media screen and (max-width: 676px) {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 20px;
   }
 
   @media screen and (max-width: 600px) {
     justify-content: unset;
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 470px) {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
   }
 `;
 
@@ -37,7 +46,7 @@ export const BurgerMenu = styled.div`
   display: none;
 
   @media screen and (max-width: 600px) {
-    display: inline-block;
+    display:block;
     svg {
       width: 30px;
       height: 30px;
@@ -60,6 +69,7 @@ export const BurgerMenuContainer = styled.div`
 
   @media screen and (max-width: 450px) {
     width: 100%;
+    height: 100%;
   }
 `;
 //використовуємо "темпового "$" " пропа, який не буде передаватися до DOM

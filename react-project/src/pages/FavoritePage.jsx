@@ -7,6 +7,22 @@ const WrappContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   min-height: 100vh;
+
+  @media screen and (max-width: 1300px) {
+    padding: 96px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    padding: 96px 60px;
+  }
+
+  @media screen and (max-width: 970px) {
+    padding: 96px 40px;
+  }
+
+  @media screen and (max-width: 470px) {
+    padding: 40px 0;
+  }
 `;
 
 const FavoritePage = () => {

@@ -20,6 +20,10 @@ const WrappContainer = styled.div`
   @media screen and (max-width: 970px) {
     padding: 96px 40px;
   }
+
+  @media screen and (max-width: 470px) {
+  padding: 40px 0;
+  }
 `;
 
 const TeacherPage = () => {

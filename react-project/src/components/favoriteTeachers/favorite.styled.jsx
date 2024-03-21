@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const WrappContainer = styled.div`
   position: relative;
+  min-height: 100vh;
+  min-width: 100vh;
 `;
 
 export const FavoriteTitle = styled.h2`
@@ -9,6 +11,12 @@ export const FavoriteTitle = styled.h2`
   font-size: 32px;
   color: #121417;
   margin-bottom: 32px;
+
+  @media screen and (max-width: 470px){
+    display: flex;
+    justify-content: center;
+  }
+
 `;
 
 export const PositionImage = styled.div`
@@ -27,6 +35,14 @@ export const TeacherList = styled.li`
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media screen and (max-width: 1100px) {
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 18px;
+  }
 `;
 
 export const SvgContainer = styled.div`
@@ -39,6 +55,16 @@ export const SvgContainer = styled.div`
   padding: 4px;
   background-color: #fff;
   border-radius: 100%;
+
+  @media screen and (max-width: 1100px) {
+    margin-top: 21px;
+    margin-right: 25px;
+  }
+
+  @media screen and (max-width: 970px) {
+    margin-top: 21px;
+    margin-right: 30px;
+  }
 `;
 
 export const Image = styled.img`
@@ -47,17 +73,39 @@ export const Image = styled.img`
   padding: 12px;
   border-radius: 50%;
   border: 3px solid #fbe9ba;
+
+  @media screen and (max-width: 1100px) {
+    width: 85px;
+    height: 85px;
+  }
+
+  @media screen and (max-width: 970px) {
+    width: 75px;
+    height: 75px;
+  }
 `;
 
 export const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1330px) {
+    flex-direction: column;
+
+    & > :first-child {
+      order: 2;
+    }
+  }
 `;
 
 export const DescLanguage = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #8a8a89;
+
+  @media screen and (max-width: 1330px) {
+    margin-bottom: 15px;
+  }
 `;
 
 export const MainTitle = styled.h2`
@@ -98,7 +146,10 @@ export const ReadMore = styled.button`
 export const StyledList = styled.ul`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 32px;
+  column-gap: 8px;
+  gap: 10px;
 `;
 
 export const ListLevels = styled.li`

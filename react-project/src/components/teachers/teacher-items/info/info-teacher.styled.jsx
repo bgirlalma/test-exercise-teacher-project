@@ -19,119 +19,12 @@ export const Wrapp = styled.div`
   @media screen and (max-width: 1330px) {
     margin-bottom: 0;
   }
-
-  @media screen and (max-width: 768px) {
-   flex-wrap: wrap;
-   gap: 10px;
-  }
 `;
 
 export const IconContainer = styled.div`
   margin-right: 8px;
-`;
-
-export const RatingWrapp = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-right: 32px;
-  height: 14px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -16px;
-    width: 2px;
-    background-color: #121417;
-  }
-
-  @media screen and (max-width: 830px) {
-    margin-right: 22px;
-    height: 11px;
-
-    &::after {
-      right: -11px;
-      width: 1px;
-    }
-  }
-
   @media screen and (max-width: 768px) {
-    margin-right: 0;
-    margin-top: 40px;
-    &::after {
-      content: none;
-    }
-  }
-`;
-
-export const LessonsWrapp = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-right: 32px;
-  height: 14px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -16px;
-    width: 2px;
-    background-color: #121417;
-  }
-
-  @media screen and (max-width: 830px) {
-    margin-right: 22px;
-    height: 11px;
-
-    &::after {
-      right: -11px;
-      width: 1px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    margin-right: 0;
-    margin-top: 40px;
-    &::after {
-      content: none;
-    }
-  }
-`;
-
-export const LessonsDoneWrapp = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-right: 32px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -16px;
-    width: 1px;
-    background-color: #121417;
-  }
-
-  @media screen and (max-width: 830px) {
-    margin-right: 22px;
-
-    &::after {
-      right: -11px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    margin-right: 0;
-    margin-top: 40px;
-    &::after {
-      content: none;
-    }
+    display: none;
   }
 `;
 
@@ -140,6 +33,20 @@ export const Title = styled.h3`
   font-size: 16px;
   color: #121417;
 
+  position: relative;
+  margin-right: 32px;
+
+  &:not(:last-child) {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: -16px;
+      width: 1px;
+      background-color: #121417;
+    }
+  }
 
   @media screen and (max-width: 1200px) {
     font-size: 14px;
@@ -147,6 +54,11 @@ export const Title = styled.h3`
 
   @media screen and (max-width: 970px) {
     font-size: 12px;
+    margin-right: 22px;
+    &::after {
+      right: -11px;
+      width: 1px;
+    }
   }
 
   @media screen and (max-width: 830px) {
@@ -154,7 +66,7 @@ export const Title = styled.h3`
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 14px;
+   display: none;
   }
 `;
 
