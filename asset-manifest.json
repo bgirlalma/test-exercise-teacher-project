@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.js": "/test-exercise-teacher-project/static/js/main.7e53d345.js",
-    "static/js/988.78b12263.chunk.js": "/test-exercise-teacher-project/static/js/988.78b12263.chunk.js",
-    "static/js/376.009dae51.chunk.js": "/test-exercise-teacher-project/static/js/376.009dae51.chunk.js",
-    "static/js/592.63769730.chunk.js": "/test-exercise-teacher-project/static/js/592.63769730.chunk.js",
-    "static/js/204.1ecc30c1.chunk.js": "/test-exercise-teacher-project/static/js/204.1ecc30c1.chunk.js",
-    "static/js/844.1884e85e.chunk.js": "/test-exercise-teacher-project/static/js/844.1884e85e.chunk.js",
+    "main.js": "/test-exercise-teacher-project/static/js/main.d685bb69.js",
+    "static/js/408.3acf2ad2.chunk.js": "/test-exercise-teacher-project/static/js/408.3acf2ad2.chunk.js",
+    "static/js/178.f196b3e2.chunk.js": "/test-exercise-teacher-project/static/js/178.f196b3e2.chunk.js",
+    "static/js/944.55669956.chunk.js": "/test-exercise-teacher-project/static/js/944.55669956.chunk.js",
+    "static/js/656.77a39f40.chunk.js": "/test-exercise-teacher-project/static/js/656.77a39f40.chunk.js",
+    "static/js/888.11690610.chunk.js": "/test-exercise-teacher-project/static/js/888.11690610.chunk.js",
+    "static/js/540.47754519.chunk.js": "/test-exercise-teacher-project/static/js/540.47754519.chunk.js",
+    "static/js/728.6a5dc99d.chunk.js": "/test-exercise-teacher-project/static/js/728.6a5dc99d.chunk.js",
     "static/media/block.jpg": "/test-exercise-teacher-project/static/media/block.095dedb079a5ea71aaa1.jpg",
     "static/media/border.jpg": "/test-exercise-teacher-project/static/media/border.78e4829e2fbd34807311.jpg",
     "index.html": "/test-exercise-teacher-project/index.html",
-    "main.7e53d345.js.map": "/test-exercise-teacher-project/static/js/main.7e53d345.js.map",
-    "988.78b12263.chunk.js.map": "/test-exercise-teacher-project/static/js/988.78b12263.chunk.js.map",
-    "376.009dae51.chunk.js.map": "/test-exercise-teacher-project/static/js/376.009dae51.chunk.js.map",
-    "592.63769730.chunk.js.map": "/test-exercise-teacher-project/static/js/592.63769730.chunk.js.map",
-    "204.1ecc30c1.chunk.js.map": "/test-exercise-teacher-project/static/js/204.1ecc30c1.chunk.js.map",
-    "844.1884e85e.chunk.js.map": "/test-exercise-teacher-project/static/js/844.1884e85e.chunk.js.map"
+    "main.d685bb69.js.map": "/test-exercise-teacher-project/static/js/main.d685bb69.js.map",
+    "408.3acf2ad2.chunk.js.map": "/test-exercise-teacher-project/static/js/408.3acf2ad2.chunk.js.map",
+    "178.f196b3e2.chunk.js.map": "/test-exercise-teacher-project/static/js/178.f196b3e2.chunk.js.map",
+    "944.55669956.chunk.js.map": "/test-exercise-teacher-project/static/js/944.55669956.chunk.js.map",
+    "656.77a39f40.chunk.js.map": "/test-exercise-teacher-project/static/js/656.77a39f40.chunk.js.map",
+    "888.11690610.chunk.js.map": "/test-exercise-teacher-project/static/js/888.11690610.chunk.js.map",
+    "540.47754519.chunk.js.map": "/test-exercise-teacher-project/static/js/540.47754519.chunk.js.map",
+    "728.6a5dc99d.chunk.js.map": "/test-exercise-teacher-project/static/js/728.6a5dc99d.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.7e53d345.js"
+    "static/js/main.d685bb69.js"
   ]
 }
