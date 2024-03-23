@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const WrappHomeContainer = styled.div`
@@ -149,13 +150,24 @@ export const HomeButton = styled.button`
   padding: 0;
   margin: 0;
 
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #cbded3;
+    color: #fff;
+  }
+
   @media screen and (max-width: 768px) {
     width: 200px;
   }
 
   @media screen and (max-width: 420px) {
-   width: 150px;
+    width: 150px;
   }
+`;
+
+export const NavButtom = styled(NavLink)`
+  color: inherit;
 `;
 
 export const StyledPhoto = styled.img`

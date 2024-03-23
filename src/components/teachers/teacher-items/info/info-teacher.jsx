@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 import {
   addTeacherFavorites,
   removeTeacherFavorites,
-} from '../../../teacher/teacherOperation';
+} from '../../../../redux/teacher/teacherOperation';
 import { useAuth } from '../../../../hooks/userHook';
 import Notiflix from 'notiflix';
 

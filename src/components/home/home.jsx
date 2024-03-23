@@ -1,3 +1,4 @@
+
 import HomeImage from '../image/block.jpg';
 import {
   WrappHomeContainer,
@@ -6,6 +7,7 @@ import {
   TitleSpan,
   HomeDesc,
   HomeButton,
+  NavButtom,
   StyledPhoto,
 } from './home.styled';
 
@@ -22,7 +24,9 @@ const Home = () => {
             Elevate your language proficiency to new heights by connecting with
             highly qualified and experienced tutors.
           </HomeDesc>
-          <HomeButton type="submit">Get started</HomeButton>
+          <HomeButton type="submit">
+            <NavButtom to="/teachers">Get started</NavButtom>
+          </HomeButton>
         </TitleContainer>
 
         <StyledPhoto src={HomeImage} alt="Girl and Computer" />

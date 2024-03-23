@@ -15,8 +15,8 @@ import {
   StyledList,
 } from './inputFilter.styled';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../../teacher/filterSlice';
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../../redux/teacher/filterSlice';
 
 const FilterTeacher = () => {
   //work with filter "languages, level, price"

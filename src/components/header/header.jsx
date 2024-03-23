@@ -7,7 +7,7 @@ import {HeaderContainer, WrappContainer, BurgerMenu, BurgerMenuContainer, CloseB
 import { RxHamburgerMenu } from 'react-icons/rx';
 import React, { useEffect, useState } from 'react';
 import { CloseSvg } from '../image/close';
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
@@ -46,6 +46,7 @@ const Header = () => {
 
   //змінна для перенаправлення користувача на сторінку при кліку по навігації в бургер меню
   const handleNavLinkClick = path => {
+    console.log(handleNavLinkClick);
     navigate(path);
     setMenuOpen(false);
   };

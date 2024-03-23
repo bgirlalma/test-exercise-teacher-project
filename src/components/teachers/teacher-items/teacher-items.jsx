@@ -10,12 +10,12 @@ import {
   MainTitle,
   StyledDescInfo,
   ReadMore,
-  StyledList,
+  StyledList, 
   ListLevels,
 } from './teachet.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { teachersList } from '../../teacher/teacherOperation';
+import { teachersList } from '../../../redux/teacher/teacherOperation';
 import { StatusOnlineSvg } from '../../image/Ellipse';
 import MenuReadMore from './readmore/redmore';
 import LoadMoreButton from './loadmore/loadmore';
