@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { CloseSvg } from '../../image/close';
 import {
   Container,
@@ -15,7 +15,6 @@ import {
 } from './book-trial-lesson.styled';
 import { RadioButton } from './radiobutton/radio-button';
 import { FormBookTrialLesson } from './form/form-book-lesson';
-import { useDispatch } from 'react-redux';
 
 const initialValues = {
   fullname: '',
@@ -23,7 +22,6 @@ const initialValues = {
   phonenumber: '',
 };
 const BookTrialLessonModal = ({ closeModal, teacher }) => {
-  const dispatch = useDispatch();
 
   return (
     <Container>

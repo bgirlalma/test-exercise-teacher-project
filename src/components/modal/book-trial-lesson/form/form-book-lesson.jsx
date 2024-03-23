@@ -3,10 +3,8 @@ import {
   StyledField,
   ButtonBookLesson,
 } from './form-book-lesson.styled';
-import { useDispatch } from 'react-redux';
 
 export const FormBookTrialLesson = () => {
-  const dispatch = useDispatch();
 
   return (
     <FormWrapp>

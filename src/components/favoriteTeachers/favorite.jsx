@@ -4,6 +4,7 @@ import { StatusOnlineSvg } from "../image/Ellipse";
 import InfoTeacher from "../teachers/teacher-items/info/info-teacher";
 import MenuReadMore from "../teachers/teacher-items/readmore/redmore";
 import { WrappContainer,FavoriteTitle, TeacherList, PositionImage, SvgContainer, Image, FlexContainer, DescLanguage, MainTitle, StyledDescInfo, ReadMore, StyledList, ListLevels } from "./favorite.styled";
+import LoadMoreButton from "../teachers/teacher-items/loadmore/loadmore";
 
 const FavoriteTeachers = () => {
   const [favoriteTeachers, setFavoriteTeachers] = useState([]);
@@ -99,6 +100,10 @@ const FavoriteTeachers = () => {
             </TeacherList>
           ))}
       </ul>
+
+      {visibleItems < favoriteTeachers.length && (
+        <LoadMoreButton loadmore={loadmore}/>
+      )}
     </WrappContainer>
   );
 };
