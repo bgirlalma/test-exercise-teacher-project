@@ -16,12 +16,11 @@ import {
 } from './inputFilter.styled';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../../../redux/teacher/filterSlice';
+import { setFilter } from '../../teacher/filterSlice';
 
 const FilterTeacher = () => {
   //work with filter "languages, level, price"
   const dispatch = useDispatch();
-  
 
   //work with select
   const [isOpenSelectLanguages, setIsOpenSelectLanguages] = useState(false);
@@ -43,7 +42,7 @@ const FilterTeacher = () => {
 
   //прибираємо фокус з селекта
   const handleFocus = e => {
-       e.target.blur();
+    e.target.blur();
   };
   return (
     <div>

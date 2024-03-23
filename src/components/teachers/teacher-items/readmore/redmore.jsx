@@ -1,4 +1,4 @@
-import BookTrialLessonModal from "../../../modal/book-trial-lesson/book-trial-lesson";
+import BookTrialLessonModal from '../../../modal/book-trial-lesson/book-trial-lesson';
 import {
   ContainerReadMore,
   ReadMoreDesc,
@@ -13,19 +13,18 @@ import {
   BookTrialLessonButton,
 } from './readmore.styled';
 import { StarSvg } from '../../../image/Star';
-import { useState } from "react";
+import { useState } from 'react';
 
 const MenuReadMore = ({ teacher }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-
   const openModal = () => {
-    setIsOpenModal(true)
-  }
+    setIsOpenModal(true);
+  };
 
   const closeModal = () => {
     setIsOpenModal(false);
-  }
+  };
 
   // перевиряємо чи дійсно існує reviews інформація про вчителя. Якщо ні - повертаємо null
   if (!teacher || !teacher.reviews) {

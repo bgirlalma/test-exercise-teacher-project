@@ -1,4 +1,4 @@
-import InfoTeacher from "./info/info-teacher";
+import InfoTeacher from './info/info-teacher';
 import {
   WrappContainer,
   TeacherList,
@@ -13,18 +13,17 @@ import {
   StyledList,
   ListLevels,
 } from './teachet.styled';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import {  teachersList } from "../../../redux/teacher/teacherOperation";
-import { StatusOnlineSvg } from "../../image/Ellipse";
-import MenuReadMore from "./readmore/redmore";
-import LoadMoreButton from "./loadmore/loadmore";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { teachersList } from '../../teacher/teacherOperation';
+import { StatusOnlineSvg } from '../../image/Ellipse';
+import MenuReadMore from './readmore/redmore';
+import LoadMoreButton from './loadmore/loadmore';
 
 const TeachersItems = () => {
   const dispatch = useDispatch();
-// const teachers = useSelector(state => state.teachers.teachers);
-// const filters = useSelector(state => state.filters);
+  // const teachers = useSelector(state => state.teachers.teachers);
+  // const filters = useSelector(state => state.filters);
 
   // state кнопки read more
   const [showReadMore, setShowReadMore] = useState({});
@@ -50,28 +49,22 @@ const TeachersItems = () => {
     }));
   };
 
-const filteredTeachers = useSelector(state => {
-  const filters = state.filter.filters;
-  // console.log("Filter", filters);
+  const filteredTeachers = useSelector(state => {
+    const filters = state.filter.filters;
+    // console.log("Filter", filters);
 
-  const teachers = state.teachers.teachers;
-  // console.log("Teachers", teachers)
+    const teachers = state.teachers.teachers;
+    // console.log("Teachers", teachers)
 
-  return teachers.filter(teacher => {
-    if (filters.languages && teacher.languages !== filters.languages)
-      return false;
-    if (filters.levels && teacher.levels !== filters.levels) return false;
-    if (
-      filters.price &&
-      teacher.price_per_hour !== filters.price
-    )
-      return false;
-    return true;
+    return teachers.filter(teacher => {
+      if (filters.languages && teacher.languages !== filters.languages)
+        return false;
+      if (filters.levels && teacher.levels !== filters.levels) return false;
+      if (filters.price && teacher.price_per_hour !== filters.price)
+        return false;
+      return true;
+    });
   });
-});
-
-  
-  
 
   return (
     <WrappContainer>

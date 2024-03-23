@@ -8,54 +8,56 @@ import {
   WrappForm,
   StyledField,
   ButtonModal,
-} from './login.styled';
-import { CloseSvg } from '../../image/close';
-import { useDispatch } from 'react-redux';
+} from './registration.styled';
 import * as Yup from 'yup';
-import { userLogin } from '../../../redux/user-autorization/authOperation';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../../redux/user-autorization/authOperation';
+import { CloseSvg } from '../../image/close';
 import Notiflix from 'notiflix';
 
+// початковий state форми
 const initialValues = {
+  name: '',
   email: '',
   password: '',
 };
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string()
-    .min(10, 'Too Short!')
-    .max(30, 'Too Long!')
+  name: Yup.string()
+    .min(3, 'Too Short!')
+    .max(15, 'Too Long!')
     .required('Required'),
+  email: Yup.string().min(8, 'Too Short!').required('Required'),
   password: Yup.string()
     .min(10, 'Too Short!')
-    .max(20, 'Too Long!')
+    .max(15, 'Too Long!')
     .required('Required'),
 });
 
-const UserLogIn = ({ closeModalLogin }) => {
+const UserRegistration = ({ closeModalRegister }) => {
   const dispatch = useDispatch();
-
   return (
     <Container>
       <FormContainer>
-        <WrappIcon onClick={closeModalLogin}>
+        <WrappIcon onClick={closeModalRegister}>
           <CloseSvg />
         </WrappIcon>
         <div>
-          <TitleForm>Log In</TitleForm>
+          <TitleForm>Registration</TitleForm>
           <DescForm>
-            Welcome back! Please enter your credentials to access your account
-            and continue your search for an teacher.
+            Thank you for your interest in our platform! In order to register,
+            we need some information. Please provide us with the following
+            information
           </DescForm>
         </div>
-
         <Formik
           initialValues={initialValues}
           validationSchema={SignupSchema}
           onSubmit={(values, { resetForm }) => {
             try {
-              dispatch(userLogin(values));
+              dispatch(registerUser(values));
               resetForm();
-               Notiflix.Notify.success('Welcome!');
+              Notiflix.Notify.success('You have successfully registered');
             } catch (error) {
               Notiflix.Notify.failure('Incorrect password or email!');
             }
@@ -63,24 +65,36 @@ const UserLogIn = ({ closeModalLogin }) => {
         >
           <WrappForm>
             <StyledField
+              name="name"
+              id="name"
+              type="text"
+              autoComplete="off"
+              required
+              placeholder="Name"
+            />
+            <ErrorMessage name="name" component="div" />
+
+            <StyledField
               name="email"
               id="email"
               type="text"
               autoComplete="off"
               required
-              placeholder="mariafrosina2023@gmail.com"
+              placeholder="Email"
             />
             <ErrorMessage name="email" component="div" />
 
             <StyledField
-              id="password"
               name="password"
+              id="password"
               type="password"
               autoComplete="off"
+              required
+              placeholder="Password"
             />
             <ErrorMessage name="password" component="div" />
 
-            <ButtonModal type="submit">Log In</ButtonModal>
+            <ButtonModal type="submit">Sign Up</ButtonModal>
           </WrappForm>
         </Formik>
       </FormContainer>
@@ -88,4 +102,4 @@ const UserLogIn = ({ closeModalLogin }) => {
   );
 };
 
-export default UserLogIn;
+export default UserRegistration;

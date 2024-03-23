@@ -22,7 +22,7 @@ const initialValues = {
   email: '',
   phonenumber: '',
 };
-const BookTrialLessonModal = ({ closeModal, teacher}) => {
+const BookTrialLessonModal = ({ closeModal, teacher }) => {
   const dispatch = useDispatch();
 
   return (
