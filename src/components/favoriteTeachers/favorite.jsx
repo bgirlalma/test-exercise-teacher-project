@@ -20,7 +20,6 @@ const FavoriteTeachers = () => {
       [id]: !prevState[id],
     }));
   };
-
   // відображення карток на сторінці
   const itemsPerPage = 4;
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
