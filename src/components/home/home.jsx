@@ -16,7 +16,7 @@ const Home = () => {
       <WrappHomeContainer>
         <TitleContainer>
           <HomeTitle>
-            Unlock your potential with the best <TitleSpan>language</TitleSpan>{' '}
+            Unlock your potential with the best <TitleSpan>language</TitleSpan>
             tutors
           </HomeTitle>
           <HomeDesc>
