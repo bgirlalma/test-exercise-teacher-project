@@ -47,6 +47,7 @@ const Navigation = ({ handleNavLinkClick }) => {
         <li>
           <TitleHomeNav
             to="/"
+            className={currentPath === '/' ? 'active' : ''}
             onClick={() => handleNavLinkClick && handleNavLinkClick('/')}
           >
             Home
@@ -55,6 +56,7 @@ const Navigation = ({ handleNavLinkClick }) => {
         <li>
           <TitleTeacherNav
             to="/teachers"
+            className={currentPath === '/teachers' ? 'active' : ''}
             onClick={() =>
               handleNavLinkClick && handleNavLinkClick('/teachers')
             }
@@ -66,6 +68,7 @@ const Navigation = ({ handleNavLinkClick }) => {
           <li>
             <TitleFavoriteNav
               to="/favorite"
+              className={currentPath === '/favorite' ? 'active' : ''}
               onClick={() =>
                 handleNavLinkClick && handleNavLinkClick('favorites')
               }
