@@ -16,7 +16,7 @@ const Navigation = ({ handleNavLinkClick }) => {
   const location = useLocation();
 
   //створюємо локальний стейт, отримуємо поточний url за допомогою localStorage.getItem('currentPath'). Якщо значення === null, використовуємо location.pathname
-  const [currentPath, setCurrentPath] = useState(() => {
+  const [, setCurrentPath] = useState(() => {
     return localStorage.getItem('currentPath') || location.pathname;
   });
 
@@ -47,7 +47,6 @@ const Navigation = ({ handleNavLinkClick }) => {
         <li>
           <TitleHomeNav
             to="/"
-            className={currentPath === '/' ? 'active' : ''}
             onClick={() => handleNavLinkClick && handleNavLinkClick('/')}
           >
             Home

@@ -19,6 +19,16 @@ export const FavoriteTitle = styled.h2`
 
 `;
 
+export const TextPlugContainer = styled.div`
+display: flex;
+`;
+
+export const TextPlug = styled.h3`
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  color: #121417;
+`;
+
 export const PositionImage = styled.div`
   position: relative;
 `;

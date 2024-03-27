@@ -11,13 +11,12 @@ export const registerUser = createAsyncThunk(
   'userAuth/registerUser',
   async (body, thunkAPI) => {
     try {
-      const user = await createUserWithEmailAndPassword(
+    await createUserWithEmailAndPassword(
         auth,
         body.email,
         body.password,
         body.name
       );
-      console.log('user', user);
       await updateProfile(auth.currentUser, { displayName: body.name });
 
       const { uid, displayName, email } = auth.currentUser;
@@ -33,12 +32,12 @@ export const userLogin = createAsyncThunk(
   'userAuth/loginUser',
   async (body, thunkAPI) => {
     try {
-      const res = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         body.email,
         body.password
       );
-      console.log('Користувач увійшов в систему:', res);
+
       await updateProfile(auth.currentUser, { displayName: body.name });
 
       const { uid, displayName, email } = auth.currentUser;
@@ -55,7 +54,7 @@ export const logoutUser = createAsyncThunk(
   async (userId, thunkAPI) => {
     try {
       const res = await signOut(auth);
-      console.log('user logout', res)
+     return res
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

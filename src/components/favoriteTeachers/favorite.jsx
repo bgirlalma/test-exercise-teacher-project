@@ -3,8 +3,25 @@ import { useSelector } from "react-redux";
 import { StatusOnlineSvg } from "../image/Ellipse";
 import InfoTeacher from "../teachers/teacher-items/info/info-teacher";
 import MenuReadMore from "../teachers/teacher-items/readmore/redmore";
-import { WrappContainer,FavoriteTitle, TeacherList, PositionImage, SvgContainer, Image, FlexContainer, DescLanguage, MainTitle, StyledDescInfo, ReadMore, StyledList, ListLevels } from "./favorite.styled";
+import {
+  WrappContainer,
+  FavoriteTitle,
+  TextPlugContainer,
+  TextPlug,
+  TeacherList,
+  PositionImage,
+  SvgContainer,
+  Image,
+  FlexContainer,
+  DescLanguage,
+  MainTitle,
+  StyledDescInfo,
+  ReadMore,
+  StyledList,
+  ListLevels,
+} from './favorite.styled';
 import LoadMoreButton from "../teachers/teacher-items/loadmore/loadmore";
+import Smile from '../image/smile.png'
 
 const FavoriteTeachers = () => {
   const [favoriteTeachers, setFavoriteTeachers] = useState([]);
@@ -44,64 +61,71 @@ const FavoriteTeachers = () => {
   return (
     <WrappContainer>
       <FavoriteTitle>Favorite Page</FavoriteTitle>
-      <ul>
-        {favoriteTeachers &&
-          favoriteTeachers.slice(0, visibleItems).map(teacher => (
-            <TeacherList key={teacher.id}>
-              <PositionImage>
-                <Image src={teacher.avatar_url} alt={teacher.name} />
+      {favoriteTeachers.length === 0 ? (
+        <TextPlugContainer>
+          <TextPlug>Ви не додали жодного вчителя в улюблене</TextPlug>
+          <img src={Smile} alt="smile" />
+        </TextPlugContainer>
+      ) : (
+        <ul>
+          {favoriteTeachers &&
+            favoriteTeachers.slice(0, visibleItems).map(teacher => (
+              <TeacherList key={teacher.id}>
+                <PositionImage>
+                  <Image src={teacher.avatar_url} alt={teacher.name} />
 
-                <SvgContainer>
-                  <StatusOnlineSvg />
-                </SvgContainer>
-              </PositionImage>
+                  <SvgContainer>
+                    <StatusOnlineSvg />
+                  </SvgContainer>
+                </PositionImage>
 
-              <div>
-                <FlexContainer>
-                  <DescLanguage>Languages</DescLanguage>
-                  <InfoTeacher teacher={teacher}/>
-                </FlexContainer>
+                <div>
+                  <FlexContainer>
+                    <DescLanguage>Languages</DescLanguage>
+                    <InfoTeacher teacher={teacher} />
+                  </FlexContainer>
 
-                <MainTitle>
-                  {teacher.name} {teacher.surname}
-                </MainTitle>
+                  <MainTitle>
+                    {teacher.name} {teacher.surname}
+                  </MainTitle>
 
-                <StyledDescInfo>Speaks: {teacher.languages}</StyledDescInfo>
-                <StyledDescInfo>
-                  Lesson Info: {teacher.lesson_info}
-                </StyledDescInfo>
-                <StyledDescInfo>
-                  Conditions: {teacher.conditions}
-                </StyledDescInfo>
+                  <StyledDescInfo>Speaks: {teacher.languages}</StyledDescInfo>
+                  <StyledDescInfo>
+                    Lesson Info: {teacher.lesson_info}
+                  </StyledDescInfo>
+                  <StyledDescInfo>
+                    Conditions: {teacher.conditions}
+                  </StyledDescInfo>
 
-                {/* {якщо showReadMore = true, показуємо компонент меню} */}
-                {showReadMore[teacher.id] ? (
-                  <MenuReadMore teacher={teacher} />
-                ) : (
-                  <ReadMore onClick={() => toggleReadMore(teacher.id)}>
-                    Read more
-                  </ReadMore>
-                )}
+                  {/* {якщо showReadMore = true, показуємо компонент меню} */}
+                  {showReadMore[teacher.id] ? (
+                    <MenuReadMore teacher={teacher} />
+                  ) : (
+                    <ReadMore onClick={() => toggleReadMore(teacher.id)}>
+                      Read more
+                    </ReadMore>
+                  )}
 
-                {/* {якщо showReadMore[id] неактивне, то відображаємо кнопки, якщо активно ні} */}
-                {!showReadMore[teacher.id] && (
-                  <div>
-                    <StyledList>
-                      {teacher.levels.map((level, index) => (
-                        <ListLevels key={index} level={level}>
-                          {level}
-                        </ListLevels>
-                      ))}
-                    </StyledList>
-                  </div>
-                )}
-              </div>
-            </TeacherList>
-          ))}
-      </ul>
+                  {/* {якщо showReadMore[id] неактивне, то відображаємо кнопки, якщо активно ні} */}
+                  {!showReadMore[teacher.id] && (
+                    <div>
+                      <StyledList>
+                        {teacher.levels.map((level, index) => (
+                          <ListLevels key={index} level={level}>
+                            {level}
+                          </ListLevels>
+                        ))}
+                      </StyledList>
+                    </div>
+                  )}
+                </div>
+              </TeacherList>
+            ))}
+        </ul>
+      )}
 
       {visibleItems < favoriteTeachers.length && (
-        <LoadMoreButton loadmore={loadmore}/>
+        <LoadMoreButton loadmore={loadmore} />
       )}
     </WrappContainer>
   );
