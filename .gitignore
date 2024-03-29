@@ -27,8 +27,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
-/src
-/config 
-!/.gitkeep
-/.firebase.js

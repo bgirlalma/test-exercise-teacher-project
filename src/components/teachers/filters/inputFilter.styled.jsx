@@ -64,12 +64,9 @@ export const InputLanguages = styled.input.attrs({ readOnly: true })`
   line-height: 111%;
   color: #121417;
 
-  &:hover {
-    border: 1px solid #8a8a89;
-  }
-
   &:focus {
     outline: none;
+   
   }
 `;
 
@@ -107,10 +104,6 @@ export const InputLevel = styled.input.attrs({ readOnly: true })`
   line-height: 111%;
   color: #121417;
 
-  &:hover {
-    border: 1px solid #8a8a89;
-  }
-
   &:focus {
     outline: none;
   }
@@ -144,10 +137,6 @@ export const InputPrice = styled.input.attrs({ readOnly: true })`
   font-size: 18px;
   line-height: 111%;
   color: #121417;
-
-  &:hover {
-    border: 1px solid #8a8a89;
-  }
 
   &:focus {
     outline: none;

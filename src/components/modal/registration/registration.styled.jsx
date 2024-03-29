@@ -8,36 +8,18 @@ export const Container = styled.div`
 `;
 export const FormContainer = styled.div`
   position: fixed;
-  top: -100%; /* начальная позиция за пределами экрана сверху */
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   border-radius: 30px;
   max-width: 565px;
   background-color: #f8f8f8;
   padding: 64px;
   border: 1px solid #9fbaae;
 
-  animation-name: slideInFromTop;
-  animation-duration: 0.8s;
-  animation-delay: 0s; /* начало анимации сразу */
-  animation-fill-mode: forwards;
-
-  @keyframes slideInFromTop {
-    0% {
-      top: 100%; /* начальная позиция за пределами экрана сверху */
-    }
-    90% {
-      box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
-      -webkit-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
-      -moz-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
-    }
-    100% {
-      box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
-      -webkit-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
-      -moz-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
-      top: 15%; /* конечная позиция на экране по вертикали */
-    }
-  }
+  box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: -2px 4px 27px 8px rgba(0, 0, 0, 0.65);
 
   @media screen and (max-width: 700px) {
     max-width: 465px;

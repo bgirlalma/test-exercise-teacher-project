@@ -51,11 +51,8 @@ const TeachersItems = () => {
 
   const filteredTeachers = useSelector(state => {
     const filters = state.filter.filters;
-    // console.log("Filter", filters);
-
     const teachers = state.teachers.teachers;
-    // console.log("Teachers", teachers)
-
+    
     return teachers.filter(teacher => {
       if (filters.languages && teacher.languages !== filters.languages)
         return false;
