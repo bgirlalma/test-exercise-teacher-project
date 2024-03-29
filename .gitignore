@@ -30,5 +30,5 @@ yarn-error.log*
 
 /src
 /config 
-/.gitkeep
+!/.gitkeep
 /.firebase.js
