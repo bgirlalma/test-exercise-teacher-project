@@ -5,7 +5,6 @@ import {
 } from './form-book-lesson.styled';
 
 export const FormBookTrialLesson = () => {
-
   return (
     <FormWrapp>
       <StyledField

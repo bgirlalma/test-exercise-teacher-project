@@ -4,17 +4,15 @@ import { logoutUser } from '../../redux/user-autorization/authOperation';
 import { LogoutContainer, TitleLogout, ButtonLogout } from './userMenu.styled';
 
 const UserMenu = () => {
-  const { userName } = useAuth()
-  const dispatch = useDispatch()
+  const { userName } = useAuth();
+  const dispatch = useDispatch();
 
-   const handleLogout = async () => {
-     dispatch(logoutUser());
-   };
+  const handleLogout = async () => {
+    dispatch(logoutUser());
+  };
   return (
     <LogoutContainer>
-      <TitleLogout>
-      {userName}
-      </TitleLogout>
+      <TitleLogout>{userName}</TitleLogout>
       <ButtonLogout type="button" onClick={handleLogout}>
         log out
       </ButtonLogout>

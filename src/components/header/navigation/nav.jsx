@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../../hooks/userHook';
 import {
@@ -34,8 +33,7 @@ const Navigation = ({ handleNavLinkClick }) => {
     //реєструємо слухача подій при кліку на іншу сторінку
     window.addEventListener('popstate', handleLocationChange);
 
-
-    //видаляємо слухача подій 
+    //видаляємо слухача подій
     return () => {
       window.removeEventListener('popstate', handleLocationChange);
     };

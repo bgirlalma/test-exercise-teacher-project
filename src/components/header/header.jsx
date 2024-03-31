@@ -3,18 +3,25 @@ import UserMenu from '../useMenu/userMenu';
 import UserNavButton from './button/userNavButton';
 import Logo from './logo/logo';
 import Navigation from './navigation/nav';
-import {HeaderContainer, WrappContainer, BurgerMenu, BurgerMenuContainer, CloseButton, WrappNav, WrappUserMenu} from './header.styled'
+import {
+  HeaderContainer,
+  WrappContainer,
+  BurgerMenu,
+  BurgerMenuContainer,
+  CloseButton,
+  WrappNav,
+  WrappUserMenu,
+} from './header.styled';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import React, { useEffect, useState } from 'react';
 import { CloseSvg } from '../image/close';
 import { useNavigate } from 'react-router-dom';
 
-
 const Header = () => {
   const { isLoggIn } = useAuth();
-  
-//навігація для бургер меню
-  const navigate = useNavigate()
+
+  //навігація для бургер меню
+  const navigate = useNavigate();
 
   // state відкриття та закриття burger menu
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,7 +49,6 @@ const Header = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [menuOpen]);
-
 
   //змінна для перенаправлення користувача на сторінку при кліку по навігації в бургер меню
   const handleNavLinkClick = path => {

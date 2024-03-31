@@ -19,7 +19,6 @@ const BookTrialLessonModal = lazy(
 );
 
 function App() {
-  
   return (
     <div>
       <Routes>
@@ -41,14 +40,12 @@ function App() {
             }
           />
 
-          <Route
-            path="teachers"
-            element={
-              <TeacherPage />
-            }
-          >
-            <Route path='readmore' element={ReadMore}>
-              <Route path='book-trial-lesson' element={BookTrialLessonModal}></Route>
+          <Route path="teachers" element={<TeacherPage />}>
+            <Route path="readmore" element={ReadMore}>
+              <Route
+                path="book-trial-lesson"
+                element={BookTrialLessonModal}
+              ></Route>
             </Route>
           </Route>
 

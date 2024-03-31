@@ -1,4 +1,3 @@
-
 import HomeImage from '../image/block.jpg';
 import {
   WrappHomeContainer,
@@ -12,26 +11,26 @@ import {
 } from './home.styled';
 
 const Home = () => {
-    return (
-      <WrappHomeContainer>
-        <TitleContainer>
-          <HomeTitle>
-            Unlock your potential with the best <TitleSpan>language</TitleSpan>
-            tutors
-          </HomeTitle>
-          <HomeDesc>
-            Embark on an Exciting Language Journey with Expert Language Tutors:
-            Elevate your language proficiency to new heights by connecting with
-            highly qualified and experienced tutors.
-          </HomeDesc>
-          <HomeButton type="submit">
-            <NavButtom to="/teachers">Get started</NavButtom>
-          </HomeButton>
-        </TitleContainer>
+  return (
+    <WrappHomeContainer>
+      <TitleContainer>
+        <HomeTitle>
+          Unlock your potential with the best <TitleSpan>language</TitleSpan>
+          tutors
+        </HomeTitle>
+        <HomeDesc>
+          Embark on an Exciting Language Journey with Expert Language Tutors:
+          Elevate your language proficiency to new heights by connecting with
+          highly qualified and experienced tutors.
+        </HomeDesc>
+        <HomeButton type="submit">
+          <NavButtom to="/teachers">Get started</NavButtom>
+        </HomeButton>
+      </TitleContainer>
 
-        <StyledPhoto src={HomeImage} alt="Girl and Computer" />
-      </WrappHomeContainer>
-    );
-}
+      <StyledPhoto src={HomeImage} alt="Girl and Computer" />
+    </WrappHomeContainer>
+  );
+};
 
 export default Home;

@@ -10,7 +10,7 @@ const Layout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      </>
+    </>
   );
 };
 

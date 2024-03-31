@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { StatusOnlineSvg } from "../image/Ellipse";
-import InfoTeacher from "../teachers/teacher-items/info/info-teacher";
-import MenuReadMore from "../teachers/teacher-items/readmore/redmore";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { StatusOnlineSvg } from '../image/Ellipse';
+import InfoTeacher from '../teachers/teacher-items/info/info-teacher';
+import MenuReadMore from '../teachers/teacher-items/readmore/redmore';
 import {
   WrappContainer,
   FavoriteTitle,
@@ -20,8 +20,8 @@ import {
   StyledList,
   ListLevels,
 } from './favorite.styled';
-import LoadMoreButton from "../teachers/teacher-items/loadmore/loadmore";
-import Smile from '../image/smile.png'
+import LoadMoreButton from '../teachers/teacher-items/loadmore/loadmore';
+import Smile from '../image/smile.png';
 
 const FavoriteTeachers = () => {
   const [favoriteTeachers, setFavoriteTeachers] = useState([]);

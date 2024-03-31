@@ -1,6 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import { LoginSvg } from "../../image/login";
-import { WrappNavButton, LogInButton, TitleButton, RegistrationNavButton, TitleRegButton } from "./userNavButton.styled";
+import { useEffect, useRef, useState } from 'react';
+import { LoginSvg } from '../../image/login';
+import {
+  WrappNavButton,
+  LogInButton,
+  TitleButton,
+  RegistrationNavButton,
+  TitleRegButton,
+} from './userNavButton.styled';
 import UserLogIn from '../../modal/login/login';
 import UserRegistration from '../../modal/registration/registration';
 
@@ -8,7 +14,6 @@ const UserNavButton = () => {
   //state для відкриття та закриття модальних вікон
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [registrationModalOpen, setRegistrationModalOpen] = useState(false);
-
 
   //створюємо лінку для елементу на який будемо встановлювати фокус після закриття модальних вікон
   const focusRef = useRef(null);
@@ -26,10 +31,8 @@ const UserNavButton = () => {
     setLoginModalOpen(false);
   };
 
-
   //закриваємо модальне вікно по кліку на хрестит
   const closeModals = () => {
-
     setLoginModalOpen(false);
     setRegistrationModalOpen(false);
 
@@ -78,4 +81,3 @@ const UserNavButton = () => {
 };
 
 export default UserNavButton;
-

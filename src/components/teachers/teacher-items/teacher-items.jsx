@@ -10,7 +10,7 @@ import {
   MainTitle,
   StyledDescInfo,
   ReadMore,
-  StyledList, 
+  StyledList,
   ListLevels,
 } from './teachet.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -52,7 +52,7 @@ const TeachersItems = () => {
   const filteredTeachers = useSelector(state => {
     const filters = state.filter.filters;
     const teachers = state.teachers.teachers;
-    
+
     return teachers.filter(teacher => {
       if (filters.languages && teacher.languages !== filters.languages)
         return false;

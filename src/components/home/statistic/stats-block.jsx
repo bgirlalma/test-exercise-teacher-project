@@ -1,4 +1,4 @@
-import StatsItem from "./stats-item";
+import StatsItem from './stats-item';
 
 const StatisticBlock = () => {
   return (

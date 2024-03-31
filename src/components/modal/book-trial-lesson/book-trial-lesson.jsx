@@ -22,7 +22,6 @@ const initialValues = {
   phonenumber: '',
 };
 const BookTrialLessonModal = ({ closeModal, teacher }) => {
-
   return (
     <Container>
       <BookTrialLessonContainer>
