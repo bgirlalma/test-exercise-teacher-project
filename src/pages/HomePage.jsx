@@ -5,6 +5,8 @@ import styled from "styled-components";
 const Container = styled.div`
   max-width: 1440px;
   padding: 20px 64px 32px 64px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (max-width: 1300px) {
     max-width: 1300px;

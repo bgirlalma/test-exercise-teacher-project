@@ -10,7 +10,7 @@ import {
 import UserLogIn from '../../modal/login/login';
 import UserRegistration from '../../modal/registration/registration';
 
-const UserNavButton = () => {
+const UserNavButton = ({ handleLoginOrRegister }) => {
   //state для відкриття та закриття модальних вікон
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [registrationModalOpen, setRegistrationModalOpen] = useState(false);
@@ -70,9 +70,9 @@ const UserNavButton = () => {
         <TitleRegButton>Registration</TitleRegButton>
       </RegistrationNavButton>
 
-      {loginModalOpen && <UserLogIn closeModalLogin={closeModals} />}
+      {loginModalOpen && <UserLogIn closeModalLogin={closeModals} handleLogin={handleLoginOrRegister} /> }
       {registrationModalOpen && (
-        <UserRegistration closeModalRegister={closeModals} />
+        <UserRegistration closeModalRegister={closeModals} handleRegister={handleLoginOrRegister} />
       )}
       {/* створюємо невидимий елемент, на якому буде встановленний фокус після закриття модального вікна */}
       <div tabIndex={-1} ref={focusRef}></div>

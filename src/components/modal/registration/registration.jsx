@@ -34,7 +34,7 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const UserRegistration = ({ closeModalRegister }) => {
+const UserRegistration = ({ closeModalRegister, handleRegister }) => {
   const dispatch = useDispatch();
   return (
     <Container>
@@ -94,7 +94,9 @@ const UserRegistration = ({ closeModalRegister }) => {
             />
             <ErrorMessage name="password" component="div" />
 
-            <ButtonModal type="submit">Sign Up</ButtonModal>
+            <ButtonModal type="submit" onClick={handleRegister}>
+              Sign Up
+            </ButtonModal>
           </WrappForm>
         </Formik>
       </FormContainer>

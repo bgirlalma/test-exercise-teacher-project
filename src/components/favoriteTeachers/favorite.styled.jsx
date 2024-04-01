@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const WrappContainer = styled.div`
+  @media screen and (min-width: 1441px) {
+   margin-left: auto;
+   margin-right: auto;
+  }
+  max-width: 1440px;
   position: relative;
   min-height: 100vh;
   min-width: 100vh;

@@ -8,7 +8,7 @@ import {
 } from './nav.styled';
 import { useLocation } from 'react-router-dom';
 
-const Navigation = ({ handleNavLinkClick }) => {
+const Navigation = ({ handleNavLinkClick}) => {
   const { isLoggIn } = useAuth();
 
   //отримуємо поточний url

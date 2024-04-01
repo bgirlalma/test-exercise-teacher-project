@@ -2,6 +2,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const WrappLogo = styled.div`
+  @media screen and (min-width: 1441px) {
+    margin-left: 128px;
+  }
   display: flex;
   align-items: center;
 `;

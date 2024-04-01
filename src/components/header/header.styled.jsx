@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 128px;
-    margin-right: 128px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  @media screen and (min-width: 1441px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 128px;
+  margin-right: 128px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
   @media screen and (max-width: 900px) {
     margin-left: 100px;

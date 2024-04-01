@@ -52,9 +52,16 @@ const Header = () => {
 
   //змінна для перенаправлення користувача на сторінку при кліку по навігації в бургер меню
   const handleNavLinkClick = path => {
-    console.log(handleNavLinkClick);
     navigate(path);
     setMenuOpen(false);
+  };
+
+  const handleLoginOrRegister = () => {
+    //спочатку здійснюється вхід користувача у систему, потім відбувається закриття модального вікна, та перенапревлення на сторінку homepage
+    setTimeout(() => {
+       navigate('/');
+       setMenuOpen(false);
+     }, 100); 
   };
 
   return (
@@ -76,7 +83,11 @@ const Header = () => {
             </WrappNav>
 
             <WrappUserMenu>
-              {!isLoggIn ? <UserNavButton /> : <UserMenu />}
+              {!isLoggIn ? (
+                <UserNavButton handleLoginOrRegister={handleLoginOrRegister} />
+              ) : (
+                <UserMenu />
+              )}
             </WrappUserMenu>
           </BurgerMenuContainer>
         )}

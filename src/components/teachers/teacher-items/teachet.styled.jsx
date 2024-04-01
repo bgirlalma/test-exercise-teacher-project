@@ -1,13 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WrappContainer = styled.div`
+  @media screen and (min-width: 1441px) {
+   margin-left: auto;
+   margin-right: auto;
+  }
+  max-width: 1440px;
 position: relative
  min-height: 100vh;
   min-width: 100vh;
 `;
 
 export const PositionImage = styled.div`
-position: relative;
+  position: relative;
 `;
 
 export const SvgContainer = styled.div`
@@ -79,7 +84,7 @@ export const FlexContainer = styled.div`
   @media screen and (max-width: 1330px) {
     flex-direction: column;
 
-    & > :first-child{
+    & > :first-child {
       order: 2;
     }
   }
@@ -91,7 +96,7 @@ export const DescLanguage = styled.p`
   color: #8a8a89;
 
   @media screen and (max-width: 1330px) {
-   margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 `;
 
@@ -100,7 +105,6 @@ export const MainTitle = styled.h2`
   font-size: 24px;
   color: #121417;
   margin-bottom: 32px;
-
 `;
 
 export const StyledDescInfo = styled.p`
@@ -108,7 +112,6 @@ export const StyledDescInfo = styled.p`
   font-size: 16px;
   color: #121417;
   margin-bottom: 8px;
-
 `;
 
 export const ReadMore = styled.button`
@@ -131,7 +134,6 @@ export const ReadMore = styled.button`
     color: #9fbaae;
   }
 `;
-
 
 export const StyledList = styled.ul`
   display: flex;
@@ -165,5 +167,4 @@ export const ListLevels = styled.li`
   &:focus {
     background-color: #9fbaae;
   }
-
 `;

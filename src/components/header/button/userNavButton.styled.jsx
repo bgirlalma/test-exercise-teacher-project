@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const WrappNavButton = styled.div`
+  @media screen and (min-width: 1441px) {
+    margin-right: 128px;
+  }
   display: flex;
   align-items: center;
   margin-left: auto;

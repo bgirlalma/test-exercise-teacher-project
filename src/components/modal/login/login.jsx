@@ -31,7 +31,7 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const UserLogIn = ({ closeModalLogin }) => {
+const UserLogIn = ({ closeModalLogin, handleLogin }) => {
   const dispatch = useDispatch();
 
   return (
@@ -80,7 +80,9 @@ const UserLogIn = ({ closeModalLogin }) => {
             />
             <ErrorMessage name="password" component="div" />
 
-            <ButtonModal type="submit">Log In</ButtonModal>
+            <ButtonModal type="submit" onClick={handleLogin}>
+              Log In
+            </ButtonModal>
           </WrappForm>
         </Formik>
       </FormContainer>

@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const WrappFormContainer = styled.div`
+  @media screen and (min-width: 1441px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  max-width: 1440px;
   display: grid;
   grid-template-columns: 221px 198px 124px;
   gap: 20px;

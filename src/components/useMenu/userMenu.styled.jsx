@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 
 export const LogoutContainer = styled.div`
+  @media screen and (min-width: 1441px) {
+    margin-right: 128px;
+  }
+  max-width: 1440px;
   display: flex;
   align-items: center;
   margin-left: auto;
