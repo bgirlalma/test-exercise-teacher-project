@@ -67,7 +67,6 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Logo />
-
       <WrappContainer>
         <BurgerMenu>
           <RxHamburgerMenu onClick={toggleMenu} />
