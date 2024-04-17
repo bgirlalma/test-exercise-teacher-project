@@ -5,11 +5,11 @@ import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  authDomain: 'teacher-project-1d375.firebaseapp.com',
   projectId: 'teacher-project-1d375',
   storageBucket: 'teacher-project-1d375.appspot.com',
   messagingSenderId: '115585297503',
-  appId: process.env.REACT_APP_ID,
+  appId: '1:115585297503:web:8da887a74047bdda947fea',
 };
 
 // Initialize Firebase
